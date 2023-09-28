@@ -1,0 +1,590 @@
+/* ADMIN STUDENT START */
+body{
+    background-color: #f8f8f8;
+}
+.student_container{
+    height: 90vh;
+    margin-left: 8%;
+    margin-right: 4%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.side_section1{
+    width: 40%;
+}
+.side_section1 div input{
+    width: 100%;
+    height: 30px;
+    padding: 15px;
+    border: none;
+    box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.25);
+}
+.side_section1 div h2{
+    margin-bottom: 10px;
+    font-weight: 30px;
+    font-size: 25px;
+}
+.side_section2{
+    width: 55%;
+    padding-right: 50px;
+    /* background-color: #7f417d; */
+}
+.student_list{
+    background-color: transparent;
+    margin-top: 30px;
+    overflow-y: scroll;
+    height: 70vh;
+}
+/* EDIT BUTTONS CONTAINER  */
+.edit_buttons_container{
+    flex-direction: row;
+    display: flex;
+}
+.edit_buttons_container span{
+    background:transparent;
+    width: 22px;
+    margin-left: 2px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    border-radius: 50%;
+    font-size: 14px;
+    user-select: none;
+}
+
+.edit_buttons_container .editButton{
+    border: none;
+}
+.edit_buttons_container .cancelButton{
+    color:red;
+    cursor: pointer;
+    font-weight: 40px;
+}
+.edit_buttons_container .submitButton{
+    color: teal;
+    font-size: 12px;
+}
+
+.student_details{
+   display: flex;
+   margin-bottom: 20px;
+}
+.student_details img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.student_details div{
+    padding: 8px;
+    margin-left: 5px;
+    font-size: 20px;
+}
+.student_details div span{
+    font-weight: bold;
+    font-size: 18px;
+}
+.student_details div a{
+    color: #7f417d;
+    font-size: 16px;
+    text-decoration: none;
+}
+.enrol_button{
+    display: block;
+    margin-left: auto;
+    width: 150px;
+    color: white;
+    padding:8px;
+    text-align: center;
+    border-radius: 27px;
+    font-size: 1em;
+    cursor: pointer;
+
+}
+.details{
+    background-color: white;
+    width: 70%;
+    padding: 5px;
+    margin-top: 60px;
+    border: none;
+    box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.25);
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.details a{
+    margin-left: 85%;
+}
+
+.details ul{
+    overflow-y: scroll;
+    height: 350px;
+}
+.details ul li{
+    list-style-type: none;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+ul li form span{
+    background-color: red;
+    padding: 2px;
+}
+ul li form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+ul li form input:read-only{
+    border: none;
+    text-align: center;
+}
+.studentID{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
+    padding: 8px;
+    margin-bottom: 8px;
+}
+.studentID div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.studentID img{
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+.detail_btn{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px;
+}
+.detail_btn a{
+    margin-left: 0;
+    color: #7f417d;
+    font-weight: bolder;
+}
+#myBtn{
+    background-color: transparent;
+    border: 2px solid rgb(216, 19, 19);
+    border-radius: 25px;
+    color: rgb(216, 19, 19);
+    padding: 2px;
+    width: 150px;
+    text-align: center;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+/* MODAL */
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0,0.4);
+    backdrop-filter: blur(3px);
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+}
+/* MODAL1 */
+.modal-content{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 20%;
+    background-color: #fefefe;
+    border-radius: 20px;
+    width: 50%;
+    height: 60%;
+    margin-left: 25%;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+}
+.close{
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #7f417d;
+    text-decoration: none;
+    cursor: pointer;
+}
+.close_btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 22px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+.warning_bx {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+.warning_bx span{
+    color: rgb(212, 22, 22);
+    font-size: 70px;
+}
+.bx_content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+}
+#del_student {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.bx_content ul {
+    margin-left: 10px;
+}
+.bx_content ul li {
+    list-style: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+.bx_content ul li:before {
+    content: ".";
+    font-size: 50px;
+    line-height: 0;
+}
+.del_choice {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 65px;
+}
+#del_record {
+    background-color: transparent;
+    cursor: pointer;
+    color: rgb(212, 22, 22);
+    border: 2px solid rgb(212, 22, 22);
+    border-radius: 25px;
+    padding: 6px;
+    width: 200px;
+    font-weight: bold;
+}
+#del_record:hover {
+    color: #7f417d;
+    border: 2px solid #7f417d;
+}
+#dis_account {
+    background-color: rgb(212, 22, 22);
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 6px;
+    width: 200px;
+    font-weight: bold;
+}
+#dis_account:hover {
+    background-color: #7f417d;
+}
+
+/* MODAL2 */
+.modal_content2{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 20%;
+    background-color: #fefefe;
+    border-radius: 20px;
+    width: 50%;
+    height: 60%;
+    margin-left: 25%;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+}
+.close2{
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close2:hover,
+.close2:focus {
+    color: #7f417d;
+    text-decoration: none;
+    cursor: pointer;
+}
+#dis_cancel {
+    background-color: rgb(212, 22, 22);
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 6px;
+    width: 200px;
+    font-weight: bold;
+}
+#dis_cancel:hover {
+    background-color: #7f417d;
+}
+#dis_account_yes {
+    background-color: transparent;
+    cursor: pointer;
+    color: rgb(212, 22, 22);
+    border: 2px solid rgb(212, 22, 22);
+    border-radius: 25px;
+    padding: 6px;
+    width: 200px;
+    font-weight: bold;
+}
+#dis_account_yes:hover {
+    color: #7f417d;
+    border: 2px solid #7f417d;
+}
+.bx_content2 {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.bx_content2 textarea {
+    height: 90px;
+    border: none;
+    background-color: whitesmoke;
+    padding: 8px;
+    margin-top: 4px;
+    outline: none;
+    color: rgb(99, 98, 98);
+}
+.del_choice2 {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+/* MODAL3 */
+.modal_content3{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 20%;
+    background-color: #fefefe;
+    border-radius: 20px;
+    width: 50%;
+    height: 60%;
+    margin-left: 25%;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+}
+.close3{
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close3:hover,
+.close3:focus {
+    color: #7f417d;
+    text-decoration: none;
+    cursor: pointer;
+}
+#del_back {
+    background-color: transparent;
+    cursor: pointer;
+    color: rgb(212, 22, 22);
+    border: 2px solid rgb(212, 22, 22);
+    border-radius: 25px;
+    padding: 6px;
+    width: 200px;
+    font-weight: bold;
+}
+#del_back:hover {
+    color: #7f417d;
+    border: 2px solid #7f417d;
+}
+#dis_continue {
+    background-color: rgb(212, 22, 22);
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 6px;
+    width: 200px;
+    font-weight: bold;
+}
+#dis_continue:hover {
+    background-color: #7f417d;
+}
+.warning_bx3 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+.warning_bx3 span{
+    color: rgb(212, 123, 22);
+    font-size: 70px;
+}
+.bx_content3 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 7%;
+}
+.bx_content3 input {
+    width: 90%;
+    height: 30px;
+    padding: 5px;
+    border: none;
+    background-color: transparent;
+}
+.del_choice3 {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 120px;
+}
+.input-icon {
+    width: 90%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 7px;
+    border: 2px solid black;
+}
+.icon {
+    padding: 10px;
+    font-size: 100%;
+}
+
+/* MODAL4 */
+.modal_content4{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 20%;
+    background-color: #fefefe;
+    border-radius: 20px;
+    width: 50%;
+    height: 60%;
+    margin-left: 25%;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+}
+.close4{
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close4:hover,
+.close4:focus {
+    color: #7f417d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#del_success {
+    background-color: rgb(212, 22, 22);
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 6px;
+    width: 200px;
+    font-weight: bold;
+}
+#del_success:hover {
+    background-color: #7f417d;
+}
+.warning_bx4 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+.warning_bx4 span{
+    color: rgb(14, 136, 20);
+    font-size: 70px;
+}
+.bx_content4 {
+    text-align: center;
+}
+.del_choice4 {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 165px;
+}
+
+
+/* MODAL5 */
+.modal_content5{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 20%;
+    background-color: #fefefe;
+    border-radius: 20px;
+    width: 50%;
+    height: 60%;
+    margin-left: 25%;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+}
+.close5{
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close5:hover,
+.close5:focus {
+    color: #7f417d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#del_success {
+    background-color: rgb(212, 22, 22);
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 6px;
+    width: 200px;
+    font-weight: bold;
+}
+#del_success:hover {
+    background-color: #7f417d;
+}
+
+.bx_content5 {
+    text-align: center;
+}
+.del_choice5 {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 150px;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 20%; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 20%; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+/* ADMIN STUDENT END */

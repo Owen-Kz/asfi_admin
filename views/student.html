@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/public/Styles/general.css">
+    <link rel="stylesheet" href="/public/Styles/adminstudent.css">
+    <link rel="stylesheet" href="/files/icons/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/files/icons/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/files/icons/material-design-iconic-font/css/material-design-iconic-font.css">
+    <link rel="stylesheet" href="/files/icons/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="/files/icons/weather-icons/css/weather-icons-core.css">
+
+
+    <!-- END STYLE SHEETS  -->
+
+    <title>Admin - Student</title>
+</head>
+
+<body>
+
+    <sidebar class="left-navigation-bar bg-shadow ">
+        <div class="navbar-logo_container">
+            <b>ADMIN</b>
+        </div>
+        <div class="navbar-contents">
+            <ul class="navbar_buttons">
+                <a href="/Dashboard/
+                    ">
+                    <li class="navbar_item active_item" title="Dashboard"><span
+                            class="icon icon-bxs_dashboard_icon"></span>
+                        <span class="nav_tool_tip">Dashboard</span>
+                    </li>
+                </a>
+
+                <a href="/Library/">
+                    <li class="navbar_item " title="Library"><span class="icon icon-Library"></span><span
+                            class="nav_tool_tip ">Students Management</span></li>
+                </a>
+
+
+                <a href="/Directory/">
+                    <li class="navbar_item" title="Directory"><span class="icon icon-folder"></span><span
+                            class="nav_tool_tip">Instructor Management</span></li>
+                </a>
+
+                <a href="/Tutorials/">
+                    <li class="navbar_item" title="Tutorial"><img src="/files/icons_img/tutorial.png"
+                            alt="Tutorials"><span class="nav_tool_tip">Content Management</span></li>
+                </a>
+
+
+                <a href="/Podcasts/">
+                    <li class="navbar_item" title="Podcasts"><span class="icon icon-mic"></span><span
+                            class="nav_tool_tip">Payment Module</span></li>
+                </a>
+
+
+                <a href="/Video_conferencing/">
+                    <li class="navbar_item" title="Video Conferencing"><img src="/files/icons_img/VC.png"
+                            alt=" Video Conferencing"><span class="nav_tool_tip ">Commisions Management</span></li>
+                </a>
+            </ul>
+        </div>
+
+        <div class="navbar_content_bottom">
+            <ul class="bottom_navbar_ul">
+                <li class="navbar_item"><i class="fa fa-code"></i></li>
+            </ul>
+            <ul class="bottom_navbar_ul">
+                <li class="navbar_item"><i class="fa fa-cogs"></i></li>
+            </ul>
+        </div>
+    </sidebar>
+    <main class="student_container">
+        <div class="side_section1">
+            <div>
+                <h2>Students</h2>
+                <input type="text" placeholder="Search for student by name, course number, year...">
+            </div>
+            <div class="student_list">
+                <div class="student_details">
+                    <a href=""><img src="/files/images/07.jpg" alt=""></a>
+                    <div>
+                        <span>Johnathan Philips Adichie</span> <br>
+                        <i><a href="">view details</a></i>
+                    </div>
+                </div>
+                <div class="student_details">
+                    <a href=""><img src="/files/images/07.jpg" alt=""></a>
+                    <div>
+                        <span>Johnathan Philips Adichie</span> <br>
+                        <i><a href="">view details</a></i>
+                    </div>
+                </div>
+                <div class="student_details">
+                    <a href=""><img src="/files/images/07.jpg" alt=""></a>
+                    <div>
+                        <span>Johnathan Philips Adichie</span> <br>
+                        <i><a href="">view details</a></i>
+                    </div>
+                </div>
+                <div class="student_details">
+                    <a href=""><img src="/files/images/07.jpg" alt=""></a>
+                    <div>
+                        <span>Johnathan Philips Adichie</span> <br>
+                        <i><a href="">view details</a></i>
+                    </div>
+                </div>
+                <div class="student_details">
+                    <a href=""><img src="/files/images/07.jpg" alt=""></a>
+                    <div>
+                        <span>Johnathan Philips Adichie</span> <br>
+                        <i><a href="">view details</a></i>
+                    </div>
+                </div>
+                <div class="student_details">
+                    <a href=""><img src="/files/images/07.jpg" alt=""></a>
+                    <div>
+                        <span>Johnathan Philips Adichie</span> <br>
+                        <i><a href="">view details</a></i>
+                    </div>
+                </div>
+                <div class="student_details">
+                    <a href=""><img src="/files/images/07.jpg" alt=""></a>
+                    <div>
+                        <span>Johnathan Philips Adichie</span> <br>
+                        <i><a href="">view details</a></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="side_section2">
+            <span class="enrol_button bg-purple">Enrol</span>
+            <div class="details">
+                <a href="">Print</a>
+                <div class="studentID">
+                    <div>
+                        <h2>Details</h2>
+                        <p>#STU-9804584586</p>
+                    </div>
+                    <img src="/files/images/07.jpg" alt="">
+                </div>
+                <ul>
+                    <li>
+                        <form method="GET" id="firstname">
+                            <div>Firstname</div>
+                            <input value="Ali" name="newFirstname" id="firstname_InputField" readonly>
+                            <div class="edit_buttons_container" id="editFirstNameContainer">
+                                <span id="firstname_edit" class="editButton" onclick="EDIT_FIRSTNAME()"><i
+                                        class="fa fa-edit"></i></span>
+                            </div>
+                            <button id="firstnameSubmit" style="display:none"></button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" id="lastname">
+                            <div>Lastname</div>
+                            <input value="Baba" name="newLastname" id="lastname_InputField" readonly>
+                            <div class="edit_buttons_container" id="editLastNameContainer">
+                                <span id="lastname_edit" class="editButton" onclick="EDIT_LASTNAME()"><i
+                                        class="fa fa-edit"></i></span>
+                            </div>
+                            <button id="lastnameSubmit" style="display:none"></button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" id="othername">
+                            <div>Othernames</div>
+                            <input value="Nicro" name="newOthername" id="othername_InputField" readonly>
+                            <div class="edit_buttons_container" id="editOtherNameContainer">
+                                <span id="othername_edit" class="editButton" onclick="EDIT_OTHERNAME()"><i
+                                        class="fa fa-edit"></i></span>
+                            </div>
+                            <button id="othernameSubmit" style="display:none"></button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" id="dob">
+                            <div>Date of Birth</div>
+                            <input value="12-12-1999" name="newDateofbirth" id="dateofbirth_InputField" readonly>
+                            <div class="edit_buttons_container" id="editDateofBirthContainer">
+                                <span id="dateofbirth_edit" class="editButton" onclick="EDIT_DATEOFBIRTH()"><i
+                                        class="fa fa-edit"></i></span>
+                            </div>
+                            <button id="dateofbirthSubmit" style="display:none"></button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" id="email">
+                            <div>Email</div>
+                            <input value="example@gmail.com" name="newEmail" id="email_InputField" readonly>
+                            <div class="edit_buttons_container" id="editEmailContainer">
+                                <span id="email_edit" class="editButton" onclick="EDIT_EMAIL()"><i
+                                        class="fa fa-edit"></i></span>
+                            </div>
+                            <button id="emailSubmit" style="display:none"></button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" id="phonenumber">
+                            <div>Phone Number</div>
+                            <input value="0000000000" name="newPhonenumber" id="phonenumber_InputField" readonly>
+                            <div class="edit_buttons_container" id="editPhonenumberContainer">
+                                <span id="phonenumber_edit" class="editButton" onclick="EDIT_PHONENUMBER()"><i
+                                        class="fa fa-edit"></i></span>
+                            </div>
+                            <button id="phonenumberSubmit" style="display:none"></button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" id="nationality">
+                            <div>Nationality</div>
+                            <input value="Nigeria" name="newNationality" id="nationality_InputField" readonly>
+                            <div class="edit_buttons_container" id="editNationalityContainer">
+                                <span id="nationality_edit" class="editButton" onclick="EDIT_NATIONALITY()"><i
+                                        class="fa fa-edit"></i></span>
+                            </div>
+                            <button id="nationalitySubmit" style="display:none"></button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" id="course">
+                            <div>Course</div>
+                            <input value="C.Engineering" name="newCourse" id="course_InputField" readonly>
+                            <div class="edit_buttons_container" id="editCourseContainer">
+                                <span id="course_edit" class="editButton" onclick="EDIT_COURSE()"><i
+                                        class="fa fa-edit"></i></span>
+                            </div>
+                            <button id="courseSubmit" style="display:none"></button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" id="CourseID">
+                            <div>Course ID</div>
+                            <input value="#ECO-110" name="newCourseid" id="courseid_InputField" readonly>
+                            <div class="edit_buttons_container" id="editCourseidContainer">
+                                <span id="courseid_edit" class="editButton" onclick="EDIT_COURSEID()"><i
+                                        class="fa fa-edit"></i></span>
+                            </div>
+                            <button id="courseidSubmit" style="display:none"></button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" id="yoe">
+                            <div>Year of Entry</div>
+                            <input value="2023" name="newYearofentry" id="yearofentry_InputField" readonly>
+                            <div class="edit_buttons_container" id="editYearofEntryContainer">
+                                <span id="yearofentry_edit" class="editButton" onclick="EDIT_YEAROFENTRY()"><i
+                                        class="fa fa-edit"></i></span>
+                            </div>
+                            <button id="yearofentrySubmit" style="display:none"></button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" id="courseduration">
+                            <div>Course Duration</div>
+                            <input value="0000" name="newCourseduration" id="courseduration_InputField" readonly>
+                            <div class="edit_buttons_container" id="editCoursedurationContainer">
+                                <span id="courseduration_edit" class="editButton" onclick="EDIT_COURSEDURATON()"><i
+                                        class="fa fa-edit"></i></span>
+                            </div>
+                            <button id="coursedurationSubmit" style="display:none"></button>
+                        </form>
+                    </li>
+                    <div class="detail_btn">
+                        <a href="">Result Checker</a><button id="myBtn">Delete Records</button>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content 1-->
+        <div class="modal-content">
+            <div class="close_btn">
+                <span class="close">&times;</span>
+            </div>
+            <div class="warning_bx">
+                <span class="fa fa-exclamation-triangle"></span>
+            </div>
+            <div class="bx_content">
+                <p>Are you sure you want to delete the records for <span id="del_student">Johnathan Adichie</span>? <br>
+                    The Following will be deleted and this process cannot be undone</p>
+                <ul>
+                    <li>Exam records</li>
+                    <li>Test results</li>
+                    <li>Personal info</li>
+                    <li>Course outline</li>
+                </ul>
+            </div>
+            <div class="del_choice">
+                <button id="del_record">Yes, Delete Record</button><button id="dis_account">Disable Account
+                    Instead</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal2" class="modal">
+
+        <!-- Modal content 2 -->
+        <div class="modal_content2">
+            <div class="close_btn">
+                <span class="close2">&times;</span>
+            </div>
+            <div class="warning_bx">
+                <span class="fa fa-exclamation-triangle"></span>
+            </div>
+            <div class="bx_content2">
+                <p>Are you sure you want to disable <span id="del_student">Johnathan Adichie</span><b>'S ACCOUNT?</b>
+                    <br>Please state a few reasons why the account needs to be disabled. This would be sent to their
+                    email.</p>
+                <textarea name="" id="">Type text here...</textarea>
+            </div>
+            <div class="del_choice2">
+                <button id="dis_account_yes">Yes, Disable Account</button><button id="dis_cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal3" class="modal">
+
+        <!-- Modal content 3 -->
+        <div class="modal_content3">
+            <div class="close_btn">
+                <span class="close3">&times;</span>
+            </div>
+            <div class="warning_bx3">
+                <span class="fa fa-exclamation-triangle"></span>
+            </div>
+            <div class="bx_content3">
+                <p>Enter Security Key <span class="fa fa-exclamation"></span></p>
+                <div class="input-icon">
+                    <input type="text">
+                    <i class="fa fa-eye icon"></i>
+                </div>
+            </div>
+            <div class="del_choice3">
+                <button id="del_back">Back</button><button id="dis_continue">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal4" class="modal">
+
+        <!-- Modal content 4 -->
+        <div class="modal_content4">
+            <div class="close_btn">
+                <span class="close4">&times;</span>
+            </div>
+            <div class="warning_bx4">
+                <span class="fa fa-check-circle"></span>
+            </div>
+            <div class="bx_content4">
+                <p></p><span id="del_student">Johnathan Adichie</span>'s records has been Deleted Successfully</p>
+            </div>
+            <div class="del_choice4">
+                <button id="del_success">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal5" class="modal">
+
+        <!-- Modal content 5 -->
+        <div class="modal_content5">
+            <div class="close_btn">
+                <span class="close5">&times;</span>
+            </div>
+            <div class="warning_bx4">
+                <span class="fa fa-check-circle"></span>
+            </div>
+            <div class="bx_content5">
+                <p></p><span id="del_student">Johnathan Adichie</span>'s records has been Disabled Successfully.</p> <p>To re-enable this account visit the student's management page.</p>
+            </div>
+            <div class="del_choice5">
+                <button id="del_success">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/footer.js"></script>
+
+    <script src="/JS/jquery-3.4.1.min.js"></script>
+    <script src="/JS/mainjs.js"></script>
+    <script src="/JS/adminStudents.js"></script>
+</body>
+
+</html>

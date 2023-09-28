@@ -1,0 +1,283 @@
+/* STUDENT ENROLLMENT  START*/
+.sign-up_form, .step2, .step3, .step4{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    /* margin: 8%; */
+    padding: 0 15px 0 60px;
+    margin-top: 0;
+    position: relative;
+    height: 100%;
+}
+
+.circle {
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    position: fixed;
+}
+.top-circle{
+    /* float: right; */
+    /* align-self: flex-end; */
+    height: 500px;
+    width: 500px;
+    right: -320px;
+    top: -120px;
+}
+
+.bottom-circle{
+    display: flex;
+    bottom: -250px;
+    left:-150px;
+    height: 500px;
+    width: 500px;
+}
+
+.mini1-circle{
+    display: flex;
+    height: 80px;
+    width: 80px;
+    right: -50px;
+    top: 500px;
+}
+
+.mini2-circle{
+    display: flex;
+    height: 80px;
+    width: 80px;
+    left: 210px;
+    margin-top: -280px;
+}
+
+.main_signup_container{
+    display: flex;
+    justify-content: center;
+    background: white;
+    height: 95vh;
+}
+.main_form{
+    display: flex;
+    flex-direction: row;
+    width: 1000%;
+}
+.signup_container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    height: 95%;
+    background-color: whitesmoke;
+    text-align: center;
+    z-index: 99999999;
+    /* overflow-x: hidden; */
+}
+.submit{
+    width: 80%;
+    margin: auto;
+    margin-top: 7%;
+    margin-bottom: 4%;
+    padding: 6px;
+    color: whitesmoke;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 50px;
+}
+.submit1{
+    padding: 6px;
+    width: 170px;
+    color:purple;
+    border: 2px solid purple;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 50px 0 0 50px;
+}
+.submit2{
+    padding: 6px;
+    width: 170px;
+    color: whitesmoke;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 0 50px 50px 0;
+}
+.button2{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 82%;
+    margin-top: 7%;
+}
+.button3{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 82%;
+    margin-top: 20%;
+}
+.button4{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 82%;
+    margin-top: 20%;
+}
+.button{
+    /* z-index: -1; */
+    /* position: absolute; */
+    align-self: flex-end;
+    /* margin-top: 60%; */
+    width: 30%;
+    height: 30px;
+    border: none;
+    color: whitesmoke;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 9px;
+}
+.checkaccount{
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 2%;
+}
+
+.checkaccount a{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgba(255, 72, 0, 0.986);
+}
+.asfi_text{
+    font-size: 2.5rem;
+    font-weight: 1000;
+    margin: 4%;
+}
+.enroll_text{
+    align-self: flex-start;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-left: 60px;
+}
+/* #password{
+    width: 60%;
+} */
+.password_main{
+    /* align-self: flex-end; */
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid;
+    justify-content: space-between;
+    /* margin-top: -30px; */
+    border-bottom: 1px solid black;
+}
+.password_main span{
+    /* align-self: flex-end; */
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+    cursor: pointer;
+    user-select: none;
+}
+input{
+    border: none;
+    height: 50px;
+    margin-top: 5px;
+}
+.hloe, .hloe:focus{
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    height: 50px;
+    margin-top: 5px;
+    outline: none;
+}
+.hloe *{
+    height: 20px;
+    font-size: 1rem;
+}
+.gender, .gender:focus{
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    height: 50px;
+    margin-top: 5px;
+    outline: none;
+}
+.gender *{
+    height: 20px;
+    width: 50%;
+    font-size: 1rem;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+}
+select optgroup:hover{
+  background: rgba(27, 27, 27, 0.192);
+}
+.sign-up_form input:not(.password), .step2 input:not(.password), .step3 input:not(.password), .step4 input:not(:read-only){
+    border-bottom: 1px solid black;
+    background-color: transparent;
+}
+
+.step4 .readonly{
+    background-color: rgba(170, 170, 170, 0.384);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: none;
+}
+input[type=date]{
+    width: 60%;
+}
+.sign-up_form button{
+    border: none;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.password{
+    background-color: transparent;
+}
+
+#category1{
+    margin-top: -1000px;
+    transition: ease 300ms;  
+  }
+
+  #category2{
+    margin-top: -1000px;
+    transition: ease 300ms;  
+  }
+ul{
+   background-color: rgba(170, 170, 170, 0.384);
+   box-shadow: 0px 40px 30px 0px rgba(0, 0, 0, 0.25);
+}
+.course_list li{
+    list-style-type: none;
+    margin-top: 2px;
+    padding: 6px;
+    width: 400px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.year_list li{
+    list-style-type: none;
+    margin-top: 2px;
+    padding: 6px;
+    width: 400px;
+    background-color: white;
+    cursor: pointer;
+}
+/* MEDIA QUERY START */
+
+/* MEDIA QUERY END */
+/* STUDENT ENROLLMENT  END*/
