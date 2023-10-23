@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>ADMIN Course Category</title>
+	<title>ASFIScholar Course List</title>
 
 	<!-- Meta Tags -->
 	<meta charset="utf-8">
@@ -176,7 +176,6 @@
 				
 			</ul>
 			<!-- Sidebar menu end -->
-
 
 			<!-- Sidebar footer START -->
 			<div class="px-3 mt-auto pt-3">
@@ -374,10 +373,37 @@
 		<!-- Title -->
 		<div class="row mb-3">
 			<div class="col-12 d-sm-flex justify-content-between align-items-center">
-				<h1 class="h3 mb-2 mb-sm-0">Total Courses <span class="badge bg-orange bg-opacity-10 text-orange">245</span></h1>
-				<a href="admin-create-course.html" class="btn btn-sm btn-primary mb-0">Create a Course</a>
+				<h1 class="h3 mb-2 mb-sm-0">Scholar Uploads</h1>
 			</div>
 		</div>
+
+		<!-- Course boxes START -->
+		<div class="row g-4 mb-4">
+			<!-- Course item -->
+			<div class="col-sm-6 col-lg-4">
+				<div class="text-center p-4 bg-primary bg-opacity-10 border border-primary rounded-3">
+					<h6>Total</h6>
+					<h2 class="mb-0 fs-1 text-primary">1200</h2>
+				</div>
+			</div>
+
+			<!-- Course item -->
+			<div class="col-sm-6 col-lg-4">
+				<div class="text-center p-4 bg-success bg-opacity-10 border border-success rounded-3">
+					<h6>Activated</h6>
+					<h2 class="mb-0 fs-1 text-success">996</h2>
+				</div>
+			</div>
+
+			<!-- Course item -->
+			<div class="col-sm-6 col-lg-4">
+				<div class="text-center p-4  bg-warning bg-opacity-15 border border-warning rounded-3">
+					<h6>Pending</h6>
+					<h2 class="mb-0 fs-1 text-warning">200</h2>
+				</div>
+			</div>
+		</div>
+		<!-- Course boxes END -->
 
 		<!-- Card START -->
 		<div class="card bg-transparent border">
@@ -386,7 +412,6 @@
 			<div class="card-header bg-light border-bottom">
 				<!-- Search and select START -->
 				<div class="row g-3 align-items-center justify-content-between">
-
 					<!-- Search bar -->
 					<div class="col-md-8">
 						<form class="rounded position-relative">
@@ -424,14 +449,15 @@
 						<!-- Table head -->
 						<thead>
 							<tr>
-								<th scope="col" class="border-0 rounded-start">Course Name</th>
-								<th scope="col" class="border-0">Instructor</th>
-								<th scope="col" class="border-0">Rating</th>
-								<th scope="col" class="border-0">Enrolled</th>
+								<th scope="col" class="border-0 rounded-start">Title</th>
+								<th scope="col" class="border-0">Scholar</th>
+								<th scope="col" class="border-0">Added Date</th>
+								<th scope="col" class="border-0">Type</th>
+								<th scope="col" class="border-0">Status</th>
 								<th scope="col" class="border-0 rounded-end">Action</th>
 							</tr>
 						</thead>
-
+						
 						<!-- Table body START -->
 						<tbody>
 							
@@ -440,10 +466,7 @@
 								<!-- Table data -->
 								<td>
 									<div class="d-flex align-items-center position-relative">
-										<!-- Image -->
-										<div class="w-60px">
-											<img src="/assets/images/courses/4by3/08.jpg" class="rounded" alt="">
-										</div>
+					
 										<!-- Title -->
 										<h6 class="table-responsive-title mb-0 ms-2">	
 											<a href="#" class="stretched-link">Building Scalable APIs with GraphQL</a>
@@ -453,7 +476,7 @@
 
 								<!-- Table data -->
 								<td>
-									<div class="d-flex align-items-center">
+									<div class="d-flex align-items-center mb-3">
 										<!-- Avatar -->
 										<div class="avatar avatar-xs flex-shrink-0">
 											<img class="avatar-img rounded-circle" src="/assets/images/avatar/09.jpg" alt="avatar">
@@ -466,27 +489,169 @@
 								</td>
 
 								<!-- Table data -->
+								<td>28 Oct 2021</td>
+
+								<!-- Table data -->
+								<td> <span class="badge text-bg-primary">PDF</span> </td>
+
+
+								<!-- Table data -->
+								<td> <span class="badge bg-warning bg-opacity-15 text-warning">Pending</span> </td>
+
+								<!-- Table data -->
 								<td>
-									<ul class="list-inline mb-0">
-										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-										<li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
-									</ul>
+                                    <a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View</a>
+									<a href="#" class="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0">Approve</a>
+									<button class="btn btn-sm btn-danger mb-0">Reject</button>
+                                    
+
+								</td>
+							</tr>
+
+							<!-- Table row -->
+							<tr>
+								<!-- Table data -->
+								<td>
+									<div class="d-flex align-items-center position-relative">
+										<!-- Title -->
+										<h6 class="table-responsive-title mb-0 ms-2">	
+											<a href="#" class="stretched-link">Bootstrap 5 From Scratch</a>
+										</h6>
+									</div>
 								</td>
 
 								<!-- Table data -->
-								<td> 15,567</td>
+								<td>
+									<div class="d-flex align-items-center mb-3">
+                                        <!-- Avatar -->
+										<div class="avatar avatar-xs flex-shrink-0">
+											<img class="avatar-img rounded-circle" src="/assets/images/avatar/05.jpg" alt="avatar">
+										</div>
+										<!-- Info -->
+										<div class="ms-2">
+											<h6 class="mb-0 fw-light">Billy Vasquez</h6>
+										</div>
+									</div>
+								</td>
+
+								<!-- Table data -->
+								<td>16 Oct 2021</td>
+
+								<!-- Table data -->
+								<td> <span class="badge text-bg-purple">Podcast</span> </td>
+
 
 								<!-- Table data -->
 								<td>
-									<a href="admin-edit-course-detail.html" class="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</a>
-									<button class="btn btn-sm btn-danger mb-0" data-bs-toggle="modal" data-bs-target="#deleteCourse">Delete</button>
+									<span class="badge bg-warning bg-opacity-15 text-warning">Pending</span>
+								</td>
+
+								<!-- Table data -->
+								<td>
+                                    <a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View</a>
+									<a href="#" class="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0">Approve</a>
+									<button class="btn btn-sm btn-danger mb-0">Reject</button>
+                                    
+
+								</td>
+							</tr>
+
+                            <!-- Table row -->
+							<tr>
+								<!-- Table data -->
+								<td>
+									<div class="d-flex align-items-center position-relative">
+										<!-- Title -->
+										<h6 class="table-responsive-title mb-0 ms-2">	
+											<a href="#" class="stretched-link">Bootstrap 5 From Scratch</a>
+										</h6>
+									</div>
+								</td>
+
+								<!-- Table data -->
+								<td>
+									<div class="d-flex align-items-center mb-3">
+                                        <!-- Avatar -->
+										<div class="avatar avatar-xs flex-shrink-0">
+											<img class="avatar-img rounded-circle" src="/assets/images/avatar/05.jpg" alt="avatar">
+										</div>
+										<!-- Info -->
+										<div class="ms-2">
+											<h6 class="mb-0 fw-light">Billy Vasquez</h6>
+										</div>
+									</div>
+								</td>
+
+								<!-- Table data -->
+								<td>16 Oct 2021</td>
+
+								<!-- Table data -->
+								<td> <span class="badge text-bg-purple">Publication/URL</span> </td>
+
+
+								<!-- Table data -->
+								<td>
+									<span class="badge bg-warning bg-opacity-15 text-warning">Pending</span>
+								</td>
+
+								<!-- Table data -->
+								<td>
+                                    <a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View</a>
+									<a href="#" class="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0">Approve</a>
+									<button class="btn btn-sm btn-danger mb-0">Reject</button>
+                                    
+
 								</td>
 							</tr>
 
 							
+
+							<!-- Table row -->
+							<tr>
+								<!-- Table data -->
+								<td>
+									<div class="d-flex align-items-center position-relative">
+					
+										<!-- Title -->
+										<h6 class="table-responsive-title mb-0 ms-2">	
+											<a href="#" class="stretched-link">Building Scalable APIs with GraphQL</a>
+										</h6>
+									</div>
+								</td>
+
+								<!-- Table data -->
+								<td>
+									<div class="d-flex align-items-center mb-3">
+										<!-- Avatar -->
+										<div class="avatar avatar-xs flex-shrink-0">
+											<img class="avatar-img rounded-circle" src="/assets/images/avatar/09.jpg" alt="avatar">
+										</div>
+										<!-- Info -->
+										<div class="ms-2">
+											<h6 class="mb-0 fw-light">Lori Stevens</h6>
+										</div>
+									</div>
+								</td>
+
+								<!-- Table data -->
+								<td>28 Oct 2021</td>
+
+								<!-- Table data -->
+								<td> <span class="badge text-bg-primary">PDF</span> </td>
+
+
+								<!-- Table data -->
+								<td>
+									<span class="badge bg-success bg-opacity-15 text-success">Live</span>
+								</td>
+
+								<!-- Table data -->
+								<td>
+									<a href="#" class="btn btn-sm btn-dark me-1 mb-1 mb-md-0" data-bs-toggle="modal" data-bs-target="#appDetail">View</a>
+								</td>
+							</tr>
+
+
 						</tbody>
 						<!-- Table body END -->
 					</table>
@@ -520,39 +685,37 @@
 		<!-- Card END -->
 	</div>
 	<!-- Page main content END -->
+
 </div>
 <!-- Page content END -->
 
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
 
-<!-- Delete Modal START -->
-<div class="modal fade" id="deleteCourse" tabindex="-1" aria-labelledby="deleteCourselabel" aria-hidden="true">
+<!-- Modal START -->
+<div class="modal fade" id="appDetail" tabindex="-1" aria-labelledby="appDetaillabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			
 			<!-- Modal header -->
 			<div class="modal-header bg-dark">
-				<h5 class="modal-title text-white" id="deleteCourselabel">Delete Course</h5>
+				<h5 class="modal-title text-white" id="appDetaillabel">Resource details</h5>
 				<button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
 			</div>
 
 			<!-- Modal body -->
 			<div class="modal-body p-5">
-				<form action="">
 				<!-- Name -->
-				<span class="small">Title:</span>
-				<h6 class="mb-3">Title goes here...</h6>
+				<span class="small">Scholar Name:</span>
+				<h6 class="mb-3">John Doe</h6>
 
 				<!-- Email -->
-				<span class="small">Description:</span>
-				<h6 class="mb-3">Description goes here...</h6>
+				<span class="small">Resource Title:</span>
+				<h6 class="mb-3">Title goes here...</h6>
 
-				<!-- Summary -->
-				<span class="small">NOTE:</span>
-				<p class="text-dark mb-2">Completing this process will delete this course from the ASFIScholar platform</p>
-				<button type="button" class="btn btn-danger-soft my-0">Delete</button>
-			</form>
+				<!-- Phone number -->
+				<span class="small">File:</span>
+				<h6 class="mb-3">File goes here...</h6>
 			</div>
 
 			<!-- Modal footer -->
@@ -562,8 +725,7 @@
 		</div>
 	</div>
 </div>   
-<!--Delete Modal END -->
-
+<!-- Modal END -->
 
 <!-- Back to top -->
 <div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>

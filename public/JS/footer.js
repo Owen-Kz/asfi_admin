@@ -1,1 +1,0 @@
-document.write("<footer>&copy; " + new Date().getFullYear() + " - ASFIScholar </footer>")
