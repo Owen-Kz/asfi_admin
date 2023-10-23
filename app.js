@@ -7,7 +7,7 @@ const dotenv = require("dotenv").config();
 
 const app =  express();
 const cookie = require("cookie-parser");
-const PORT = process.env.PORT || 2000;
+const PORT = process.env.PORT || 2008;
 const server = require("http").Server(app)
 const session = require("express-session");
 const shortid = require("shortid"); 
@@ -50,11 +50,11 @@ app.set("view engine", "ejs");
 app.set("views", ["./views"]);
 
 
-app.use("/css", express.static(__dirname + "/public/Styles", { type: 'text/css' }))
-app.use("/js", express.static(__dirname + "/public/Js", { type: 'text/javascript' }))
+app.use("/assets", express.static(__dirname + "/public/assets/", { type: 'text/folder' }))
+// app.use("/assets", express.static(__dirname + "/public/assets", { type: 'text/javascript' }))
 
 
-// app.use("/files", express.static(__dirname + "/public/files", {type: 'text/folder'}))
+app.use("/assets/images", express.static(__dirname + "/public//assets/images", {type: 'text/folder'}))
 // app.use("/files/images", express.static(__dirname + "/public/files/images", {type: 'file/image'}))
 // app.use("/userUploads/Audio", express.static(__dirname + "/public/userUpload/audio", {type:'file/media'}))
 // app.use("/userUploads/Videos", express.static(__dirname + "/public/userUpload/videos", {type:'file/media'}))
@@ -63,15 +63,9 @@ app.use("/js", express.static(__dirname + "/public/Js", { type: 'text/javascript
 
 db.connect((err) => {
     if(err) throw err;
-    console.log("Database connected");
+    console.log(`Database connected on Port ${PORT}`);
 })
 
-db.query("SELECT * FROM user_info WHERE acct_type = 'instructor_account'", async(err,data)=>{
-    if(err) throw err
-    data.forEach(person =>{
-    console.log(person.username)
-    })
-})
 
 let socketsConnected = new Set();
 
