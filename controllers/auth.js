@@ -2,7 +2,7 @@ const express = require("express");
 const register = require("./register")
 const login = require("./login")
 // const db = require("../routes/db.config");
-const forgotPassword = require("./forgotPassword");
+// const forgotPassword = require("./forgotPassword");
 // const confrim_code = require("./confirmReset");
 // const createNewPassword = require("./createNewSecret");
 

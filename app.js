@@ -155,7 +155,7 @@ function onConnected(socket) {
   });
 }
 app.use("/", require("./routes/pages"));
-// app.use("/api", require("./controllers/auth"));
+app.use("/api", require("./controllers/auth"));
 
 // app.use("/update/newPasword", require("./controllers/updatePassword"))
 
