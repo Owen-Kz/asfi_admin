@@ -51,7 +51,7 @@ app.set("views", ["./views"]);
 
 
 app.use("/assets", express.static(__dirname + "/public/assets/", { type: 'text/folder' }))
-// app.use("/assets", express.static(__dirname + "/public/assets", { type: 'text/javascript' }))
+app.use("/js", express.static(__dirname + "/public/js", { type: 'text/javascript' }))
 
 
 app.use("/assets/images", express.static(__dirname + "/public//assets/images", {type: 'text/folder'}))

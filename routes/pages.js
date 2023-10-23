@@ -12,8 +12,13 @@ router.get("/admin/courses", (req,res) =>{
     res.render("admin-course-list")
 })
 
+router.get("/admin/courses/categories", (req,res) =>{
+    res.render("admin-course-category")
+})
+
+
 router.get("/admin/course/details", (req,res) =>{
-    res.render("admin-course-details")
+    res.render("admin-course-detail")
 })
 
 router.get("/admin/courses/create",(req,res)=>{
