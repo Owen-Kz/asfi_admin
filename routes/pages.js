@@ -45,11 +45,11 @@ router.get("/admin/courses/create",(req,res)=>{
 })
 
 router.get("/admin/courses/edit", (req,res)=>{
-    res.render("admin-edit-course")
+    res.render("admin-edit-course-detail")
 })
 
 router.get("/admin/instructors/details", (req,res)=>{
-    res.render("admin-instructor-details")
+    res.render("admin-instructor-detail")
 })
 
 router.get("/admin/instructors", (Req,res)=>{
@@ -57,7 +57,7 @@ router.get("/admin/instructors", (Req,res)=>{
 })
 
 router.get("/admin/instructors/requests", (req,res)=>{
-    res.render("admin-instructor-requests")
+    res.render("admin-instructor-request")
 })
 
 router.get("/admin/review", (req,res)=>{
@@ -65,7 +65,7 @@ router.get("/admin/review", (req,res)=>{
 })
 
 router.get("/admin/scholars/details", (req,res)=>{
-    res.render("admin-scholar-details")
+    res.render("admin-scholar-detail")
 })
 
 router.get("/admin/scholars/requests", (req,res)=>{
@@ -77,7 +77,7 @@ router.get("/admin/settings", (req,res)=>{
 })
 
 router.get("/admin/students", (req,res) =>{
-    res.render("admin-students")
+    res.render("admin-student-list")
 })
 
 router.get("/admin/instructors/uploadRequests", (req,res)=>{
@@ -86,6 +86,18 @@ router.get("/admin/instructors/uploadRequests", (req,res)=>{
 
 router.get("/admin/scholars/uploadRequests", (req,res)=>{
     res.render("scholarUploadRequests")
+})
+
+router.get("/admin/signin", (req,res)=>{
+    res.render("sign-in")
+})
+
+router.get("/admin/signup", (req,res)=>{
+    res.render("sign-up")
+})
+
+router.get("/admin/forgotPassword", (req,res)=>{
+    res.render("forgot-password")
 })
 router.get("/logout")
 
