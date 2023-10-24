@@ -22278,3 +22278,17 @@ html[dir=rtl] .choices__input {
 
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */
+
+.no_content_message{
+  display: flex;
+  user-select: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  color:grey;
+  }
+  .no_content_message .icon{
+  font-size: 30px;
+  }
