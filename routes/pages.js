@@ -1,4 +1,10 @@
 const express = require("express");
+const LoggedIn = require("../controllers/loggedin");
+const courseDetail = require("../controllers/utils/CourseDetails");
+const UserInfo = require("../controllers/utils/userInfo");
+const EnrolledStudents = require("../controllers/utils/enrolledstudents");
+const CourseReviews = require("../controllers/utils/courseReviews");
+const OpenReviews = require("../controllers/utils/openReviews");
 
 
 const router = express.Router();
@@ -16,10 +22,23 @@ router.get("/admin/courses/categories", (req,res) =>{
     res.render("admin-course-category")
 })
 
-
-router.get("/admin/course/details", (req,res) =>{
-    res.render("admin-course-detail")
+// COURSE DETAILS 
+router.get("/admin/course/details/:courseId", (req,res) =>{
+    const courseID = req.params.courseId
+    res.render("admin-course-detail", {CourseID:courseID})
 })
+// feed data to the course Details Page 
+router.get("/getcoursedetails/:courseId", courseDetail)
+// Get user info 
+router.get("/users/:username", UserInfo)
+// Get Enrolled Students 
+router.get("/enrolledstudents/:courseId", EnrolledStudents)
+// GEt the course REviews 
+router.get("/courseReviews/:courseId?page", CourseReviews)
+// Open a Review and Read it 
+router.get("/openReview/:reviewId", OpenReviews)
+
+// END COURSE DETAILS 
 
 router.get("/admin/courses/create",(req,res)=>{
     res.render("admin-create-course")
