@@ -363,7 +363,7 @@
 					<!-- Card footer START -->
 					<div class="card-footer bg-transparent" id="footer_container">
 						<!-- Pagination START -->
-					
+					<div id="pageCountContainer"></div>
 						<!-- Pagination END -->
 					</div>
 					<!-- Card footer END -->
@@ -391,36 +391,9 @@
 				<button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
 			</div>
 			<!-- Modal body -->
-			<div class="modal-body">
-				<div class="d-md-flex">
-					<!-- Avatar -->
-					<div class="avatar avatar-md me-4 flex-shrink-0">
-						<img class="avatar-img rounded-circle" src="/assets/images/avatar/09.jpg" alt="avatar">
-					</div>
-					<!-- Text -->
-					<div>
-						<div class="d-sm-flex mt-1 mt-md-0 align-items-center">
-							<h5 class="me-3 mb-0">Lori Stevens</h5>
-							<!-- Review star -->
-							<ul class="list-inline mb-0">
-								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-								<li class="list-inline-item me-0"><i class="far fa-star text-warning"></i></li>
-							</ul>
-						</div>
-						<!-- Info -->
-						<p class="small mb-2">2 days ago</p>
-						<p class="mb-2">Handsome met debating sir dwelling age material. As style lived he worse dried. Offered related so visitors we private removed. Moderate do subjects to distance. </p>
-						<p class="mb-2">As style lived he worse dried. Offered related so visitors we private removed. Moderate do subjects to distance. </p>
-					</div>	
-				</div>
-			</div>
-			<!-- Modal footer -->
-			<div class="modal-footer">
-				<button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Close</button>
-			</div>
+			<div class="modal-body" id="viewReviewModalBody">
+				
+			
 		</div>
 	</div>
 </div>
@@ -491,6 +464,7 @@
 <script src="/assets/vendor/apexcharts/js/apexcharts.min.js"></script>
 <script src="/assets/vendor/overlay-scrollbar/js/overlayscrollbars.min.js"></script>
 <script src="/js/formatDate.js"></script>
+<script src="/js/ratingsStarCount.js"></script>
 <script src="/js/paginationScript.js"></script>
 <script src="/js/getCourseDetails.js"></script>
 <!-- Template Functions -->

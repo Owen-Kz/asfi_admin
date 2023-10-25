@@ -3,7 +3,8 @@ function paginationFotTutorials(currentPage, totalPages, PrevPage, NexxtPage){
     const pageCountContainer = document.getElementById("pageCountContainer")
 if(pageCountContainer){
        
-        pageCountContainer.innerHTML = ` <p class="mb-0 text-center text-sm-start">Page ${currentPage} of ${totalPages}</p>`;
+        pageCountContainer.innerHTML = `
+        <p class="mb-0 text-center text-sm-start">Page ${currentPage} of ${totalPages}</p>`;
 
         let paginationHTML = `
         <nav class="mt-4 d-flex justify-content-center" aria-label="navigation">
