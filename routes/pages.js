@@ -34,7 +34,7 @@ router.get("/users/:username", UserInfo)
 // Get Enrolled Students 
 router.get("/enrolledstudents/:courseId", EnrolledStudents)
 // GEt the course REviews 
-router.get("/courseReviews/:courseId?page", CourseReviews)
+router.get("/courseReviews/:courseId", CourseReviews)
 // Open a Review and Read it 
 router.get("/openReview/:reviewId", OpenReviews)
 

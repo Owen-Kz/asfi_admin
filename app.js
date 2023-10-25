@@ -54,6 +54,10 @@ app.use("/assets", express.static(__dirname + "/public/assets/", { type: 'text/f
 app.use("/js", express.static(__dirname + "/public/js", { type: 'text/javascript' }))
 
 
+// Profile Images from the ASFI scholar platform 
+// app.use("/profile/images", express.static("https://asfi-demo-app-2cbea9ef1c2f.herokuapp.com/userUploads/profileImages", {type: 'text/folder'}))
+
+
 app.use("/assets/images", express.static(__dirname + "/public//assets/images", {type: 'text/folder'}))
 // app.use("/files/images", express.static(__dirname + "/public/files/images", {type: 'file/image'}))
 // app.use("/userUploads/Audio", express.static(__dirname + "/public/userUpload/audio", {type:'file/media'}))

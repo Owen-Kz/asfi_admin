@@ -10,6 +10,7 @@ const course_level_container = document.getElementById("course_level")
 const total_lectures_container = document.getElementById("total_lectures")
 const course_reviews_container = document.getElementById("course_reviews_container")
 const owner_profile_picture = document.getElementById("owner_profile_picture")
+const footerContainer = document.getElementById("footer_container")
 
 
 fetch(`/getcoursedetails/${courseID.value}`, ()=>{
@@ -60,8 +61,8 @@ fetch(`/enrolledstudents/${courseID.value}`, ()=>{
 }).then(res => res.json())
 .then(data =>{
     const enrolledSTudentsCount = data.enrolledCount
+    total_students_container.innerHTML = `<span>${enrolledSTudentsCount}</span>`;
 })
-
 
 // Get the Reviews for the course 
 function CourseReviewPage(page) {
@@ -70,12 +71,21 @@ function CourseReviewPage(page) {
     }).then(res => res.json())
     .then(data =>{
         const Reviews = JSON.parse(data.course_reviews)
+        const CurrentPage = data.currentPageReviews
+        const TotalPages = data.totalPagesReviews
+        const TotalReviews = data.totalReviews
+        const PrevPage = Math.floor(parseInt(CurrentPage) - 1)
+    const NexxtPage = Math.floor(parseInt(CurrentPage) + 1)
+
+        course_reviews_container.innerHTML = ""
         if(Reviews.length > 0){
             Reviews.forEach(review => {
                 const ReviewerUsername = review.reviewer_username
                 const ReviewerFullname = review.reviewer_name
-                
                 const ReviewRating = review.review_rating
+                const ReviewRetrievedId = review.review_id
+                const review_date = formatTimestamp(review.review_date)
+
 
                 // GEt Profile info For all Reviewers
                 fetch(`/users/${ReviewerUsername}`, ()=>{
@@ -85,14 +95,62 @@ function CourseReviewPage(page) {
                     const ReviewerData = JSON.parse(data.UserInfo)
                     const ReviewerProfilePicture = ReviewerData[0].profile_picture
 
+                    course_reviews_container.innerHTML += `<tr>
+                    <!-- Table data -->
+                    <td>
+                        <div class="d-flex align-items-center position-relative">
+                            <!-- Image -->
+                            <div class="avatar avatar-xs mb-2 mb-md-0">
+                                <img src="https://asfi-demo-app-2cbea9ef1c2f.herokuapp.com/userUploads/profileImages/${ReviewerProfilePicture}" class="rounded-circle" alt="">
+                            </div>
+                            <div class="mb-0 ms-2">
+                                <!-- Title -->
+                                <h6 class="mb-0"><a href="#" class="stretched-link">${ReviewerFullname}</a></h6>
+                            </div>
+                        </div>
+                    </td>
+                   
+                    <td class="text-center text-sm-start">
+                    <h6 class="mb-0">${review_date}</h6>
+                    </td>
+
+                    <!-- Table data -->
+                    <td>
+                        <ul class="list-inline mb-0" data-count=${ReviewRating}>
+                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                        </ul>
+                    </td>
+    
+                    <!-- Table data -->
+                    <td>
+                    <form class='reviewForm'>
+                    <input type='hidden' value=${ReviewRetrievedId} readonly id=review_id/>
+                        <a href="#" class="btn btn-sm btn-info-soft mb-0" data-bs-toggle="modal" data-bs-target="#viewReview">View</a></button>
+                        </form>
+                        <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0" data-bs-toggle="modal" data-bs-target="#deleteReview">Delete</button>
+                    </td>
+                </tr>
+    `
+
                 })
             
             });
-        }
+            if(TotalPages > 0){
+                // Update the pagination UI
+                if(footerContainer){
+               const paginationHTML = paginationFotTutorials(CurrentPage, TotalPages, PrevPage, NexxtPage);
+               footerContainer.innerHTML = paginationHTML;
+                }
+            }
+        } 
     })
 }
 
-// CourseReviewPage(1)
+CourseReviewPage(1)
 
 
 
@@ -122,42 +180,7 @@ ViewReviewForms.forEach(form=>{
                         const ReviewerData = JSON.parse(data.UserInfo)
                         const ReviewerProfilePicture = ReviewerData[0].profile_picture    
                     })
-                course_reviews_container.innerHTML += `<tr>
-                <!-- Table data -->
-                <td>
-                    <div class="d-flex align-items-center position-relative">
-                        <!-- Image -->
-                        <div class="avatar avatar-xs mb-2 mb-md-0">
-                            <img src="/assets/images/avatar/09.jpg" class="rounded-circle" alt="">
-                        </div>
-                        <div class="mb-0 ms-2">
-                            <!-- Title -->
-                            <h6 class="mb-0"><a href="#" class="stretched-link">${ReviewerFullname}</a></h6>
-                        </div>
-                    </div>
-                </td>
-
-                <!-- Table data -->
-                <td>
-                    <ul class="list-inline mb-0" data-count=${ReviewRating}>
-                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                    </ul>
-                </td>
-
-                <!-- Table data -->
-                <td>
-                <form class='reviewForm'>
-                <input type='hidden' value=${ReviewRetrievedId} readonly id=review_id/>
-                    <a href="#" class="btn btn-sm btn-info-soft mb-0" data-bs-toggle="modal" data-bs-target="#viewReview">View</a></button>
-                    </form>
-                    <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0" data-bs-toggle="modal" data-bs-target="#deleteReview">Delete</button>
-                </td>
-            </tr>
-`
+                
                 });
             }
         })
