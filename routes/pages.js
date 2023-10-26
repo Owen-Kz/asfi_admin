@@ -5,6 +5,18 @@ const UserInfo = require("../controllers/utils/userInfo");
 const EnrolledStudents = require("../controllers/utils/enrolledstudents");
 const CourseReviews = require("../controllers/utils/courseReviews");
 const OpenReviews = require("../controllers/utils/openReviews");
+const TotalActivatedCourses = require("../controllers/utils/totalActivatedCourses");
+const TotalPendingCourses = require("../controllers/utils/totalPendingCourses");
+const TotalCourses = require("../controllers/utils/totalCourses");
+const courseList = require("../controllers/utils/courseList");
+const ApproveCourses = require("../controllers/utils/approveCourses");
+const RejectCourses = require("../controllers/utils/rejectCourse");
+const DeleteCourses = require("../controllers/utils/deleteCourse");
+const ScholarsList = require("../controllers/utils/ScholarsList");
+const TotalBooks = require("../controllers/utils/TotalBooksScholars");
+const TotalPodcasts = require("../controllers/utils/TotalPodcasts");
+const TotalLinks = require("../controllers/utils/TotalLinks");
+const TotalCoursesTaken = require("../controllers/utils/CoursesTaken");
 
 
 const router = express.Router();
@@ -37,14 +49,24 @@ router.get("/enrolledstudents/:courseId", EnrolledStudents)
 router.get("/courseReviews/:courseId", CourseReviews)
 // Open a Review and Read it 
 router.get("/openReview/:reviewId", OpenReviews)
-
 // END COURSE DETAILS 
+
+
+// >>>>>> Courses PAGE 
+router.get("/admin/getTotalActivatedCourses", TotalActivatedCourses)
+router.get("/admin/getTotalPendingCourses", TotalPendingCourses)
+router.get("/admin/getTotalCourses", TotalCourses)
+router.get("/admin/getAllCourses", courseList)
+router.post("/approveCourse", ApproveCourses)
+router.post("/rejectCourse", RejectCourses)
+router.post("/deleteCourse", DeleteCourses)
+// >>>> ENd Course PAge 
 
 router.get("/admin/courses/create",(req,res)=>{
     res.render("admin-create-course")
 })
 
-router.get("/admin/courses/edit", (req,res)=>{
+router.get("/admin/courses/edit/:courseId", (req,res)=>{
     res.render("admin-edit-course-detail")
 })
 
@@ -76,9 +98,21 @@ router.get("/admin/settings", (req,res)=>{
     res.render("admin-setting")
 })
 
+
+
+// Get scholars 
 router.get("/admin/students", (req,res) =>{
     res.render("admin-student-list")
 })
+
+router.get("/admin/allScholars", ScholarsList)
+router.get("/totalCourseTaken/scholar/:username", TotalCoursesTaken)
+router.get("/totalBooks/:username", TotalBooks)
+router.get("/totalPodcasts/:username", TotalPodcasts)
+router.get("/totalLinks/:username", TotalLinks)
+
+
+// END SCHOLARS 
 
 router.get("/admin/instructors/uploadRequests", (req,res)=>{
     res.render("InstructorUploadRequests")

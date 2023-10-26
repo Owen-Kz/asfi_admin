@@ -13,6 +13,6 @@ function formatTimestamp(timestamp) {
     const hours = ('0' + date.getHours()).slice(-2);
     const minutes = ('0' + date.getMinutes()).slice(-2);
   
-    return `${dayName}, ${monthName} ${day}, ${year}`;
+    return `${monthName} ${day}, ${year}`;
   }
   

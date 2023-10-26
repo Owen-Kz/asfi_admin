@@ -66,7 +66,7 @@ fetch(`/enrolledstudents/${courseID.value}`, ()=>{
 
 // Get the Reviews for the course 
 
-function CourseReviewPage(page) {
+function NewPage(page) {
     fetch(`/courseReviews/${courseID.value}?page=${page}`, ()=>{
         method: "GET"
     }).then(res => res.json())
@@ -76,7 +76,7 @@ function CourseReviewPage(page) {
         const TotalPages = data.totalPagesReviews
         const TotalReviews = data.totalReviews
         const PrevPage = Math.floor(parseInt(CurrentPage) - 1)
-    const NexxtPage = Math.floor(parseInt(CurrentPage) + 1)
+        const NexxtPage = Math.floor(parseInt(CurrentPage) + 1)
 
         course_reviews_container.innerHTML = ""
         if(Reviews.length > 0){
@@ -152,8 +152,6 @@ function CourseReviewPage(page) {
             
             });
             if(TotalPages > 0){
-  
-
                 // Update the pagination UI
                 if(footerContainer){
                const paginationHTML = paginationFotTutorials(CurrentPage, TotalPages, PrevPage, NexxtPage);
@@ -161,10 +159,13 @@ function CourseReviewPage(page) {
                 }
             }
 
-        } 
+        }else{
+          course_reviews_container.innerHTML =  `<tr><td>Nothing to show</td></tr>`
+          footerContainer.innerHTML = ""
+        }
     }) 
 } 
-CourseReviewPage(1)
+NewPage(1)
 
 // Get ReviewContent to show in the Modal when the View button is clicked
 async function InitializeForms() {
