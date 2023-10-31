@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Admin Instructor Detail</title>
+	<title>Admin Scholar Detail</title>
 
 	<!-- Meta Tags -->
 	<meta charset="utf-8">
@@ -222,7 +222,11 @@
 					<div class="card-body">
 						<!-- Profile picture -->
 						<div class="avatar avatar-xl mb-3">
-							<img class="avatar-img rounded-circle border border-white border-3 shadow" src="/assets/images/avatar/07.jpg" alt="">
+							<% if(profile_picture == "avatar.jpg") { %>
+							<img class="avatar-img rounded-circle border border-white border-3 shadow" src="https://eu.ui-avatars.com/api/?background=random&amp;name=<%=fullname%>&amp;font-size=0.6" alt="">
+							<%} else {%>
+								<img class="avatar-img rounded-circle border border-white border-3 shadow" src="https://asfi-demo-app-2cbea9ef1c2f.herokuapp.com/userUploads/profileImages/<%=profile_picture%>" alt="">
+							<%}%>
 						</div>
 
 						<!-- Information START -->
@@ -233,22 +237,22 @@
 								<ul class="list-group list-group-borderless">
 									<li class="list-group-item">
 										<span>Title:</span>
-										<span class="h6 mb-0">Mr.</span>
+										<span class="h6 mb-0"><%=prefix%></span>
 									</li>
 
 									<li class="list-group-item">
 										<span>Full Name:</span>
-										<span class="h6 mb-0">Louis Ferguson</span>
+										<span class="h6 mb-0"><%=fullname%></span>
 									</li>
 
 									<li class="list-group-item">
 										<span>User Name:</span>
-										<span class="h6 mb-0">Lousifer</span>
+										<span class="h6 mb-0" id="username_container"><%=username%></span>
 									</li>
 
 									<li class="list-group-item">
 										<span>Mobile Number:</span>
-										<span class="h6 mb-0">+123 456 789 10</span>
+										<span class="h6 mb-0"><%=phonenumber%></span>
 									</li>
 								</ul>
 							</div>
@@ -258,28 +262,27 @@
 								<ul class="list-group list-group-borderless">
 									<li class="list-group-item">
 										<span>Email ID:</span>
-										<span class="h6 mb-0">example@gmail.com</span>
+										<span class="h6 mb-0"><%=email%></span>
 									</li>
 
 									<li class="list-group-item">
 										<span>Location:</span>
-										<span class="h6 mb-0">California</span>
+										<span class="h6 mb-0"><%=location%></span>
 									</li>
-
+<!-- 
 									<li class="list-group-item">
 										<span>Joining Date:</span>
 										<span class="h6 mb-0">29 Aug 2019</span>
-									</li>
+									</li> -->
 								</ul>
 							</div>
 
 							<!-- Information item -->
 							<div class="col-12">
 								<ul class="list-group list-group-borderless">
-									<li class="list-group-item">
+									<li class="list-group-item" id="degrees_container">
 										<span>Education:</span>
-										<span class="h6 mb-0">Bachelor in Computer Graphics,</span>
-										<span class="h6 mb-0">Masters in Computer Graphics</span>
+									
 									</li>
 								</ul>
 							</div>
@@ -289,7 +292,7 @@
 								<ul class="list-group list-group-borderless">
 									<li class="list-group-item d-flex">
 										<span>Description:</span>
-										<p class="h6 mb-0">As it so contrasted oh estimating instrument. Size like body someone had. Are conduct viewing boy minutes warrant the expense Tolerably behavior may admit daughters offending her ask own. Praise effect wishes change way and any wanted. Lively use looked latter regard had. Do he it part more last in</p>
+										<p class="h6 mb-0"><%=Bio%></p>
 									</li>
 								</ul>
 							</div>
@@ -329,74 +332,8 @@
 								</thead>
 
 								<!-- Table body START -->
-								<tbody>
-									<!-- Table row -->
-									<tr>
-										<!-- Table data -->
-										<td class="d-flex align-items-center position-relative">
-											<div class="w-60px"><img src="/assets/images/courses/4by3/08.jpg" class="rounded" alt=""></div>
-											<h6 class="table-responsive-title mb-0 ms-2"><a href="#" class="stretched-link">Building Scalable APIs with GraphQL</a></h6>
-										</td>
-
-										<!-- Table data -->
-								<td> <span class="badge text-bg-primary">PDF</span> </td>
-
-										<!-- Table data -->
-										<td>
-											<span class="badge bg-success bg-opacity-15 text-success">Live</span>
-										</td>
-
-										<!-- Table data -->
-										<td>
-											<a href="#" class="btn btn-sm btn-info-soft mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View</a>
-										</td>
-									</tr>
-
-									<!-- Table row -->
-									<tr>
-										<!-- Table data -->
-										<td class="d-flex align-items-center position-relative">
-											<div class="w-60px"><img src="/assets/images/courses/4by3/08.jpg" class="rounded" alt=""></div>
-											<h6 class="table-responsive-title mb-0 ms-2"><a href="#" class="stretched-link">Graphic Design Masterclass</a></h6>
-										</td>
-
-										<!-- Table data -->
-								<td> <span class="badge text-bg-purple">Podcast</span> </td>
-
-										<!-- Table data -->
-										<td>
-											<span class="badge bg-warning bg-opacity-15 text-warning">Pending</span>
-										</td>
-
-										<!-- Table data -->
-										<td>
-											<a href="#" class="btn btn-sm btn-info-soft mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View</a>
-										</td>
-									</tr>
-
-									<!-- Table row -->
-									<tr>
-										<!-- Table data -->
-										<td class="d-flex align-items-center position-relative">
-											<div class="w-60px"><img src="/assets/images/courses/4by3/08.jpg" class="rounded" alt=""></div>
-											<h6 class="table-responsive-title mb-0 ms-2"><a href="#" class="stretched-link">Learn Invision</a></h6>
-										</td>
-
-										<!-- Table data -->
-										<td> <span class="badge text-bg-purple">Publication/URL</span> </td>
-
-										<!-- Table data -->
-										<td>
-											<span class="badge bg-danger bg-opacity-15 text-danger">Canceled</span>
-										</td>
-
-										<!-- Table data -->
-										<td>
-											<a href="#" class="btn btn-sm btn-info-soft mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View</a>
-										</td>
-									</tr>
-
-									
+								<tbody id="userResourceContainer">
+																		
 								</tbody>
 								<!-- Table body END -->
 							</table>
@@ -408,20 +345,8 @@
 					<!-- Card footer START -->
 					<div class="card-footer bg-transparent">
 						<!-- Pagination START -->
-						<div class="d-sm-flex justify-content-sm-between align-items-sm-center">
-							<!-- Content -->
-							<p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
-							<!-- Pagination -->
-							<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
-								<ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-									<li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
-									<li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
-									<li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
-									<li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
-									<li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
-								</ul>
-							</nav>
-						</div>
+						<div id="paginationContainer"></div>
+						<div id="footer_container"></div>
 						<!-- Pagination END -->
 					</div>
 					<!-- Card footer END -->
@@ -485,6 +410,7 @@
 
 <!-- Template Functions -->
 <script src="/assets/js/functions.js"></script>
+<script src="/js/scholars/getScholarDegrees.js"></script>
 
 </body>
 

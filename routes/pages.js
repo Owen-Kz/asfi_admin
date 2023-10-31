@@ -17,6 +17,21 @@ const TotalBooks = require("../controllers/utils/TotalBooksScholars");
 const TotalPodcasts = require("../controllers/utils/TotalPodcasts");
 const TotalLinks = require("../controllers/utils/TotalLinks");
 const TotalCoursesTaken = require("../controllers/utils/CoursesTaken");
+const ScholarDetails = require("../controllers/utils/scholarDetails");
+const ScholarDegrees = require("../controllers/utils/scholarDegress");
+const AllResources = require("../controllers/utils/scholarResources");
+const TotalResourcesCount = require("../controllers/utils/countResources");
+const TotalActiveResources = require("../controllers/utils/countActiveResources");
+const TotalPendingResources = require("../controllers/utils/countPendingResources");
+const AdminResourcesMain = require("../controllers/utils/adminResourcesMain");
+const SearchResources = require("../controllers/utils/searchResources");
+const FilterResources = require("../controllers/utils/filterResources");
+const ApproveItem = require("../controllers/utils/approveItem");
+const RejectItem = require("../controllers/utils/rejectItem");
+const DeleteItem = require("../controllers/utils/deleteItem");
+const InstructorRequests = require("../controllers/utils/instructor/instructorRequests");
+const ApproveInstructorAccount = require("../controllers/utils/instructor/ApproveInstructorAccount");
+const RejectInstructorAccount = require("../controllers/utils/instructor/RejectInstructorAccount");
 
 
 const router = express.Router();
@@ -86,12 +101,24 @@ router.get("/admin/review", (req,res)=>{
     res.render("admin-review")
 })
 
-router.get("/admin/scholars/details", (req,res)=>{
-    res.render("admin-scholar-detail")
-})
+// SCHOLAR DETAILS 
+router.get("/admin/scholars/details/:username", ScholarDetails)
+router.get("/scholars/degrees/:username", ScholarDegrees)
+router.get("/allResources/:username", AllResources)
+router.get("/resources/totalResources", TotalResourcesCount)
+router.get("/resources/active", TotalActiveResources)
+router.get("/resources/pending", TotalPendingResources)
+router.get("/getAllResources", AdminResourcesMain)
+router.get("/myAssets/search/q/:searchQuery",  SearchResources)
+router.get("/myAssets/search/type/:filterQuery", FilterResources)
+router.get("/approveResource/:ItemType",ApproveItem )
+router.get("/rejectResource/:ItemType", RejectItem)
+router.get("/deleteResource/:ItemType", DeleteItem)
+
+// END SCHOLAR DETAILS 
 
 router.get("/admin/scholars/requests", (req,res)=>{
-    res.render("admin-scholar-request")
+    res.render("/admin-scholar-request")
 })
 
 router.get("/admin/settings", (req,res)=>{
@@ -110,13 +137,17 @@ router.get("/totalCourseTaken/scholar/:username", TotalCoursesTaken)
 router.get("/totalBooks/:username", TotalBooks)
 router.get("/totalPodcasts/:username", TotalPodcasts)
 router.get("/totalLinks/:username", TotalLinks)
-
-
 // END SCHOLARS 
 
+// ISNTRUCTOR REQUESTS 
 router.get("/admin/instructors/uploadRequests", (req,res)=>{
     res.render("InstructorUploadRequests")
 })
+router.get("/admin/instructors/account/requests", InstructorRequests)
+router.post("/instructors/applications/accept/:username", ApproveInstructorAccount)
+router.post("/instructors/applications/reject/:username", RejectInstructorAccount)
+
+// END INSTUCTOR REQUESTS 
 
 router.get("/admin/scholars/uploadRequests", (req,res)=>{
     res.render("scholarUploadRequests")

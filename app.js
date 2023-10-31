@@ -64,7 +64,7 @@ app.use("/assets/images", express.static(__dirname + "/public//assets/images", {
 // app.use("/userUploads/Videos", express.static(__dirname + "/public/userUpload/videos", {type:'file/media'}))
 
 
-
+ 
 db.connect((err) => {
     if(err) throw err;
     console.log(`Database connected on Port ${PORT}`);

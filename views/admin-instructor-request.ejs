@@ -217,8 +217,8 @@
 
 					<!-- Search bar -->
 					<div class="col-md-8">
-						<form class="rounded position-relative">
-							<input class="form-control bg-body" type="search" placeholder="Search" aria-label="Search">
+						<form class="rounded position-relative" id="searchResources">
+							<input class="form-control bg-body" type="search" placeholder="Search" aria-label="Search" id="searchForResources">
 							<button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
 								<i class="fas fa-search fs-6 "></i>
 							</button>
@@ -228,14 +228,14 @@
 					<!-- Select option -->
 					<div class="col-md-3">
 						<!-- Short by filter -->
-						<form>
-							<select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm">
-								<option value="">Sort by</option>
-								<option>Newest</option>
-								<option>Oldest</option>
-								<option>Accepted</option>
-								<option>Rejected</option>
+						<form id="filterByType">
+							<select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" id="filterType">
+								<option value="" >Sort by</option>
+								<option value="2">Newest</option>
+								<option value="3">Accepted</option>
+								<option value="0">Rejected</option>
 							</select>
+							<input type="submit" hidden id="submitFilter">
 						</form>
 					</div>
 				</div>
@@ -260,105 +260,7 @@
 						</thead>
 
 						<!-- Table body START -->
-						<tbody>
-							<!-- Table row -->
-							<tr>
-								<!-- Table data -->
-								<td>
-									<div class="d-flex align-items-center position-relative">
-										<!-- Image -->
-										<div class="avatar avatar-md">
-											<img src="/assets/images/avatar/09.jpg" class="rounded-circle" alt="">
-										</div>
-										<div class="mb-0 ms-2">
-											<!-- Title -->
-											<h6 class="mb-0"><a href="#" class="stretched-link">Lori Stevens</a></h6>
-										</div>
-									</div>
-								</td>
-
-								<!-- Table data -->
-								<td class="text-center text-sm-start">
-									<h6 class="mb-0">HTML, css, bootstrap</h6>
-								</td>
-
-								<!-- Table data -->
-								<td>22 Oct 2023</td>
-
-								<!-- Table data -->
-								<td>
-									<a href="#" class="btn btn-success-soft me-1 mb-1 mb-lg-0">Accept</a>
-									<a href="#" class="btn btn-secondary-soft me-1 mb-1 mb-lg-0">Reject</a>
-									<a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
-								</td>
-							</tr>
-
-							
-
-							<!-- Table row -->
-							<tr>
-								<!-- Table data -->
-								<td>
-									<div class="d-flex align-items-center position-relative">
-										<!-- Image -->
-										<div class="avatar avatar-md">
-											<img src="/assets/images/avatar/03.jpg" class="rounded-circle" alt="">
-										</div>
-										<div class="mb-0 ms-2">
-											<!-- Title -->
-											<h6 class="mb-0"><a href="#" class="stretched-link">Dennis Barrett</a></h6>
-										</div>
-									</div>
-								</td>
-
-								<!-- Table data -->
-								<td class="text-center text-sm-start">
-									<h6 class="mb-0">Javascript, Java</h6>
-								</td>
-
-								<!-- Table data -->
-								<td>21 Jan 2023</td>
-
-								<!-- Table data -->
-								<!-- Table data -->
-								<td>
-									<a href="#" class="btn btn-success me-1 mb-1 mb-md-0 disabled">Accepted</a>
-									<a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
-								</td>
-							</tr>
-
-							<!-- Table row -->
-							<tr>
-								<!-- Table data -->
-								<td>
-									<div class="d-flex align-items-center position-relative">
-										<!-- Image -->
-										<div class="avatar avatar-md">
-											<img src="/assets/images/avatar/04.jpg" class="rounded-circle" alt="">
-										</div>
-										<div class="mb-0 ms-2">
-											<!-- Title -->
-											<h6 class="mb-0"><a href="#" class="stretched-link">Billy Vasquez</a></h6>
-										</div>
-									</div>
-								</td>
-
-								<!-- Table data -->
-								<td class="text-center text-sm-start">
-									<h6 class="mb-0">Maths, Chemistry</h6>
-								</td>
-
-								<!-- Table data -->
-								<td>25 Dec 2023</td>
-
-								<!-- Table data -->
-								<td>
-									<a href="#" class="btn btn-secondary me-1 mb-1 mb-md-0 disabled">Rejected</a>
-									<a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
-								</td>
-							</tr>
-
-							
+						<tbody id="listContainer">						
 
 						</tbody>
 						<!-- Table body END -->
@@ -371,20 +273,9 @@
 			<!-- Card footer START -->
 			<div class="card-footer bg-transparent pt-0">
 				<!-- Pagination START -->
-				<div class="d-sm-flex justify-content-sm-between align-items-sm-center">
-					<!-- Content -->
-					<p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
-					<!-- Pagination -->
-					<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
-						<ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-							<li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
-							<li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
-							<li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
-							<li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
-							<li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
-						</ul>
-					</nav>
-				</div>
+				<!-- <div class="d-sm-flex justify-content-sm-between align-items-sm-center"> -->
+				<div id="footer_container"></div>
+				<!-- </div> -->
 				<!-- Pagination END -->
 			</div>
 			<!-- Card footer END -->
@@ -411,23 +302,8 @@
 			</div>
 
 			<!-- Modal body -->
-			<div class="modal-body p-5">
-				<!-- Name -->
-				<span class="small">Applicant Name:</span>
-				<h6 class="mb-3">Jacqueline Miller</h6>
+			<div class="modal-body p-5" id="applicationBody">
 
-				<!-- Email -->
-				<span class="small">Applicant Email id:</span>
-				<h6 class="mb-3">example@gmail.com</h6>
-
-				<!-- Phone number -->
-				<span class="small">Applicant Phone number:</span>
-				<h6 class="mb-3">+123 456 789 10</h6>
-
-				<!-- Summary -->
-				<span class="small">Bio:</span>
-				<p class="text-dark mb-2">We focus a great deal on the understanding of behavioral psychology and influence triggers which are crucial for becoming a well rounded Digital Marketer. We understand that theory is important to build a solid foundation, we understand that theory alone isn’t going to get the job done so that’s why this course is packed with practical hands-on examples that you can follow step by step.</p>
-				<p class="text-dark mb-0">As it so contrasted oh estimating instrument. Size like body someone had. Are conduct viewing boy minutes warrant the expense? Tolerably behavior may admit daughters offending her ask own. Praise effect wishes change way and any wanted. Lively use looked latter regard had. Do he it part more last in.</p>
 			</div>
 
 			<!-- Modal footer -->
@@ -444,6 +320,7 @@
 
 <!-- Bootstrap JS -->
 <script src="/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/instructors/instructorAccountRequests.js"></script>
 
 <!-- Vendors -->
 <script src="/assets/vendor/choices/js/choices.min.js"></script>
