@@ -1,54 +1,55 @@
-const  ScholarListContainer = document.getElementById("ScholarListContainer")
-const tableScholarList = document.getElementById("tableScholarList")
+const  InstructorListContainer = document.getElementById("InstructorListContainer")
+const tableInstructorList = document.getElementById("tableInstructorList")
 const footerContainer = document.getElementById("footer_container") 
 
-function UpdateScholarsList(scholarsArray, data){
-        const List = scholarsArray
-             ScholarListContainer.innerHTML = `<tr><td><span>Loading.....</span></td></tr>`
+function UpdateInstructorsList(InstructorsArray, data){
+        const List = InstructorsArray
+             InstructorListContainer.innerHTML = `<tr><td><span>Loading.....</span></td></tr>`
             if(List.length > 0){
-                ScholarListContainer.innerHTML = ``
-                tableScholarList.innerHTML = ``
-                const CurrentPage = data.currentPageScholars
-                const TotalPages = data.totalPagesScholars
-                const TotalScholars = data.totalScholars
+                InstructorListContainer.innerHTML = ``
+                tableInstructorList.innerHTML = ``
+                const CurrentPage = data.currentPageInstructors
+                const TotalPages = data.totalPagesInstructors
+                const TotalInstructors = data.totalInstructors
                 const PrevPage = Math.floor(parseInt(CurrentPage) - 1)
                 const NexxtPage = Math.floor(parseInt(CurrentPage) + 1)
-                List.forEach(Scholar => {
+                List.forEach(Instructor => {
                    
-                    const Scholar_name = `${Scholar.first_name} ${Scholar.last_name}`
-                    const ScholarUsername = Scholar.username
-                    const ScholarLocation = Scholar.home_address
-                    const ScholarProfilePicture = Scholar.profile_picture
-                    const Email  = Scholar.email
-                    const messageLink = `https://asfi-demo-app-2cbea9ef1c2f.herokuapp.com/${ScholarUsername}/chat`
-                    // const date_uploaded = formatTimestamp(Scholar.date_updated)
+                    const Instructor_name = `${Instructor.first_name} ${Instructor.last_name}`
+                    const InstructorUsername = Instructor.username
+                    const InstructorLocation = Instructor.home_address
+                    const InstructorProfilePicture = Instructor.profile_picture
+                    const Email = Instructor.email
+                    const Bio = Instructor.bio
+                    const messageLink = `https://asfi-demo-app-2cbea9ef1c2f.herokuapp.com/${InstructorUsername}/chat`
+                    // const date_uploaded = formatTimestamp(Instructor.date_updated)
                     
                     let ProfileSource
-                    if(ScholarProfilePicture == "avatar.jpg"){
-                        ProfileSource = `https://eu.ui-avatars.com/api/?background=random&amp;name=${Scholar_name}&amp;font-size=0.6`
+                    if(InstructorProfilePicture == "avatar.jpg"){
+                        ProfileSource = `https://eu.ui-avatars.com/api/?background=random&amp;name=${Instructor_name}&amp;font-size=0.6`
                     }else{
-                        ProfileSource = `https://asfi-demo-app-2cbea9ef1c2f.herokuapp.com/userUploads/profileImages/${ScholarProfilePicture}`
+                        ProfileSource = `https://asfi-demo-app-2cbea9ef1c2f.herokuapp.com/userUploads/profileImages/${InstructorProfilePicture}`
                     }                   
 
-                    fetch(`/totalCourseTaken/scholar/${ScholarUsername}`, ()=>{
+                    fetch(`/totalCourse/Instructor/${InstructorUsername}`, ()=>{
                         method:"GET"
                     }).then(res => res.json())
                     .then(data =>{
-                        const TotalCourses = data.TotalCoursesTaken
+                        const TotalCourses = data.TotalCourses
 
-                        fetch(`/totalBooks/${ScholarUsername}`, ()=>{
+                        fetch(`/totalBooks/${InstructorUsername}`, ()=>{
                             method : "GET"
                         }).then(res => res.json())
                         .then(data =>{
                             const TotalBooks = data.TotalBooks
 
-                            fetch(`/totalPodcasts/${ScholarUsername}`, ()=>{
+                            fetch(`/totalPodcasts/${InstructorUsername}`, ()=>{
                                 method: "GET"
                             }).then(res => res.json())
                             .then(data =>{
                                 const TotalPodcasts = data.TotalPodcasts
 
-                                fetch(`/totalLinks/${ScholarUsername}`, ()=>{
+                                fetch(`/totalLinks/${InstructorUsername}`, ()=>{
                                     method :"GET"
                                 }).then(res => res.json())
                                 .then(data =>{
@@ -56,8 +57,13 @@ function UpdateScholarsList(scholarsArray, data){
 
                             const TotalResources = Math.floor(TotalLinks + TotalBooks + TotalPodcasts)
 
+                            fetch(`/instructors/totalStudents/${InstructorUsername}`, ()=>{
+                                method : "GET"
+                            }).then(res => res.json())
+                            .then(data =>{
+                                const TotalStudents = data.TotalStudents
 
-                    ScholarListContainer.innerHTML += `<div class="col-md-6 col-xxl-4">
+                    InstructorListContainer.innerHTML += `<div class="col-md-6 col-xxl-4">
                     <div class="card bg-transparent border h-100"> 
                         <!-- Card header -->
                         <div class="card-header bg-transparent border-bottom d-flex justify-content-between">
@@ -68,8 +74,8 @@ function UpdateScholarsList(scholarsArray, data){
                                 </div>
                                 <!-- Info -->
                                 <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                    <h5 class="mb-0"><a href="#">${Scholar_name}</a></h5>
-                                    <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>${ScholarLocation}</span>
+                                    <h5 class="mb-0"><a href="#">${Instructor_name}</a></h5>
+                                    <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>${InstructorLocation}</span>
                                 </div>
                             </div>
 
@@ -80,13 +86,22 @@ function UpdateScholarsList(scholarsArray, data){
                                 </a>
                                 <!-- dropdown button -->
                                 <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare2">
-                                    <li><a class="dropdown-item" href="/admin/scholars/details/${ScholarUsername}"><i class="bi bi-pencil-square fa-fw me-2"></i>View Detail</a></li>
-                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#blockScholar" onClick='UpdateBlockModal("${Scholar_name}", "${Email}", "${ScholarUsername} ")'><i class="bi bi-trash fa-fw me-2"></i>Remove</a></li>
+                                    <li><a class="dropdown-item" href="/admin/Instructors/details/${InstructorUsername}"><i class="bi bi-pencil-square fa-fw me-2"></i>View Detail</a></li>
+                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#blockScholar" onClick='UpdateBlockModal("${Instructor_name}", "${Email}", "${InstructorUsername} ")'><i class="bi bi-trash fa-fw me-2" ></i>Remove</a></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="card-body">
+                        <!-- Total students -->
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle flex-shrink-0"><i class="fas fa-user-graduate fa-fw"></i></div>
+                                <h6 class="mb-0 ms-2 fw-light">Total Students</h6>
+                            </div>
+                            <span class="mb-0 fw-bold">${TotalStudents}</span>
+                        </div>
+
                             <!-- Resources -->
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="d-flex align-items-center">
@@ -100,7 +115,7 @@ function UpdateScholarsList(scholarsArray, data){
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="d-flex align-items-center">
                                     <div class="icon-md bg-purple bg-opacity-10 text-purple rounded-circle flex-shrink-0"><i class="fas fa-book fa-fw"></i></div>
-                                    <h6 class="mb-0 ms-2 fw-light">Total Course Taken</h6>
+                                    <h6 class="mb-0 ms-2 fw-light">Total Courses </h6>
                                 </div>
                                 <span class="mb-0 fw-bold">${TotalCourses}</span>
                             </div>
@@ -111,16 +126,14 @@ function UpdateScholarsList(scholarsArray, data){
                             <div class="d-sm-flex justify-content-between align-items-center">
                                 <!-- Rating star -->
                                 <h6 class="mb-2 mb-sm-0">
-                                    <i class="bi bi-calendar fa-fw text-orange me-2"></i><span class="text-body">Join at:</span> 29 Aug 2023
+                                    
                                 </h6>
                                 <!-- Buttons -->
                                 <div class="text-end text-primary-hover">
                                     <a href="${messageLink}" class="btn btn-link text-body p-0 mb-0 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Message" aria-label="Message">
                                         <i class="bi bi-envelope-fill"></i>
                                     </a>
-                                    <a href="#" class="btn btn-link text-body p-0 mb-0" data-bs-placement="top" title="" data-bs-original-title="Block" aria-label="Block" data-bs-toggle="modal" data-bs-target="#blockScholar" onClick='UpdateBlockModal("${Scholar_name}", "${Email}", "${ScholarUsername} ")'>
-                                        <i class="fas fa-ban"></i>
-                                    </a>
+                               
                                 </div>
                             </div>
                         </div>
@@ -128,7 +141,7 @@ function UpdateScholarsList(scholarsArray, data){
                 </div>`
 
                 // FOR TABLE LAYOUT
-                tableScholarList.innerHTML += `<!-- Table row -->
+                tableInstructorList.innerHTML += `<!-- Table row -->
                 <tr>
                     <!-- Table data -->
                     <td>
@@ -139,33 +152,40 @@ function UpdateScholarsList(scholarsArray, data){
                             </div>
                             <div class="mb-0 ms-3">
                                 <!-- Title -->
-                                <h6 class="mb-0"><a href="#" class="stretched-link">${Scholar_name}</a></h6>
-                                <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>${ScholarLocation}</span>
+                                <h6 class="mb-0"><a href="#" class="stretched-link">${Instructor_name}</a></h6>
+                                <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>${InstructorLocation}</span>
                             </div>
                         </div>
                     </td>
+                    <td>${Bio} </td>
 
                     <!-- Table data -->
                     <td>${TotalCourses}</td>
+
+                    <!-- Table data -->
+                    <td>${TotalStudents}</td>
+
+                   
 
                     <!-- Table data -->
                     <td>${TotalResources}</td>
 
                     <!-- Table data -->
                     <td>
-                        <a href="/admin/scholars/details/${ScholarUsername}" class="btn btn-light btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" title="View">
-                            <i class="bi bi-eye"></i>
-                        </a>
-                        <a href="${messageLink}" class="btn btn-light btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message">
-                            <i class="bi bi-envelope"></i>
-                        </a>
-                        
-                        <button class="btn btn-light btn-round mb-0" data-bs-toggle="modal" data-bs-target="#blockScholar" onClick='UpdateBlockModal("${Scholar_name}", "${Email}", "${ScholarUsername} ")'>
-                            <i class="fas fa-ban"></i>
-                        </button>
-                    </td>
+                    <a href=""${messageLink}" class="btn btn-info-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message">
+                        <i class="bi bi-envelope"></i>
+                    </a>
+                    <a href="/admin/instructors/details/${InstructorUsername}" class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="modal" data-bs-target="#blockScholar" onClick='UpdateBlockModal("${Instructor_name}", "${Email}", "${InstructorUsername} ")'>
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
                 </tr>`
                                 })
+                            })
+
                             })
                         })
 
@@ -185,7 +205,7 @@ function UpdateScholarsList(scholarsArray, data){
                 }
     
             }else{
-                ScholarListContainer.innerHTML =  `<tr><td>Nothing to show</td></tr>`
+                InstructorListContainer.innerHTML =  `<tr><td>Nothing to show</td></tr>`
               footerContainer.innerHTML = ""
             }
     }

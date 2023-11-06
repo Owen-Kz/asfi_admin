@@ -32,19 +32,39 @@ const DeleteItem = require("../controllers/utils/deleteItem");
 const InstructorRequests = require("../controllers/utils/instructor/instructorRequests");
 const ApproveInstructorAccount = require("../controllers/utils/instructor/ApproveInstructorAccount");
 const RejectInstructorAccount = require("../controllers/utils/instructor/RejectInstructorAccount");
+const CompletedCourses = require("../controllers/utils/dashboard/countCompletedCourses");
+const EnrolledCourses = require("../controllers/utils/dashboard/countEnrolledCourses");
+const TotalINstructors = require("../controllers/utils/dashboard/countTotalInstructors");
+const TotalScholars = require("../controllers/utils/dashboard/countTotalScholars");
+const pendingResources = require("../controllers/utils/dashboard/countpendingResources");
+const uploadedResources = require("../controllers/utils/dashboard/countAllRecources");
+const TotalInstructorCourses = require("../controllers/utils/instructor/TotalInstructorCourses");
+const TotalInstructorStudents = require("../controllers/utils/instructor/TotalInstructorStudents");
+const InstructorsList = require("../controllers/utils/instructor/InstructorsList");
+const InstructorDetails = require("../controllers/utils/instructor/InstructorDetails");
+const AllInstructorCourses = require("../controllers/utils/instructor/AllInstructorCourses");
 
 
 const router = express.Router();
 router.use(express.json())
 
+// DASHBOARD AND DASHBOARD DATA 
 router.get("/", (req,res)=>{
     res.render("admin-dashboard")
 })
 
+router.get("/admin/dashboard/countCourses/completed", CompletedCourses)
+router.get("/admin/dashboard/countCourses/enrolled", EnrolledCourses)
+router.get("/admin/dashboard/instructors/registeredCount", TotalINstructors)
+router.get("/admin/dashboard/scholars/registeredCount", TotalScholars)
+router.get("/admin/dashboard/count/pending/resources", pendingResources)
+router.get("/admin/dashboard/count/uploaded/resources", uploadedResources)
+// END DASHBOARD 
+
 router.get("/admin/courses", (req,res) =>{
     res.render("admin-course-list")
 })
-
+ 
 router.get("/admin/courses/categories", (req,res) =>{
     res.render("admin-course-category")
 })
@@ -85,17 +105,23 @@ router.get("/admin/courses/edit/:courseId", (req,res)=>{
     res.render("admin-edit-course-detail")
 })
 
-router.get("/admin/instructors/details", (req,res)=>{
-    res.render("admin-instructor-detail")
-})
-
+// INSTRUCTOR CONTENT 
 router.get("/admin/instructors", (Req,res)=>{
     res.render("admin-instructor-list")
 })
+router.get("/totalCourse/Instructor/:username", TotalInstructorCourses)
+router.get("/instructors/totalStudents/:username", TotalInstructorStudents)
+router.get("/admin/allInstructors", InstructorsList)
+router.get("/admin/instructors/details/:username", InstructorDetails)
+router.get("/allInstructorCourses/:username", AllInstructorCourses )
 
-router.get("/admin/instructors/requests", (req,res)=>{
-    res.render("admin-instructor-request")
-})
+
+
+// router.get("/admin/instructors/requests", (req,res)=>{
+//     res.render("admin-instructor-request")
+// })
+
+// END INSTRUCTOR CONTEXT 
 
 router.get("/admin/review", (req,res)=>{
     res.render("admin-review")

@@ -217,14 +217,13 @@
 
 					<!-- Search bar -->
 					<div class="col-md-8">
-						<form class="rounded position-relative">
-							<input class="form-control bg-transparent" type="search" placeholder="Search" aria-label="Search">
+						<form class="rounded position-relative" id="searchInstructorsForm">
+							<input class="form-control bg-transparent" type="search" placeholder="Search" aria-label="Search" id="searchInstructorsQuery">
 							<button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
 								<i class="fas fa-search fs-6 "></i>
 							</button>
 						</form>
 					</div>
-
 					<!-- Tab buttons -->
 					<div class="col-md-3">
 						<!-- Tabs START -->
@@ -256,86 +255,10 @@
 
 					<!-- Tabs content item START -->
 					<div class="tab-pane fade show active" id="nav-preview-tab-1">
-						<div class="row g-4">
+						<div class="row g-4" id="InstructorListContainer">
 
 							<!-- Card item START -->
-							<div class="col-md-6 col-xxl-4">
-								<div class="card bg-transparent border h-100"> 
-									<!-- Card header -->
-									<div class="card-header bg-transparent border-bottom d-flex align-items-sm-center justify-content-between">
-										<div class="d-sm-flex align-items-center">
-											<!-- Avatar -->
-											<div class="avatar avatar-md flex-shrink-0">
-												<img class="avatar-img rounded-circle" src="/assets/images/avatar/09.jpg" alt="avatar">
-											</div>
-											<!-- Info -->
-											<div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-												<h5 class="mb-0"><a href="#">John Doe</a></h5>
-												<p class="mb-0 small">Web Designer</p>
-											</div>
-										</div>
-
-										<!-- Edit dropdown -->
-										<div class="dropdown">
-											<a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare1" data-bs-toggle="dropdown" aria-expanded="false">
-												<i class="bi bi-three-dots fa-fw"></i>
-											</a>
-											<!-- dropdown button -->
-											<ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare1">
-												<li><a class="dropdown-item" href="/admin/instructors/details"><i class="bi bi-pencil-square fa-fw me-2"></i>View</a></li>
-												<li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#removeInstructor" href="#"><i class="bi bi-trash fa-fw me-2"></i>Remove</a></li>
-											</ul>
-										</div>
-									</div>
-
-									<div class="card-body">
-										<!-- Total students -->
-										<div class="d-flex justify-content-between align-items-center mb-3">
-											<div class="d-flex align-items-center">
-												<div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle flex-shrink-0"><i class="fas fa-user-graduate fa-fw"></i></div>
-												<h6 class="mb-0 ms-2 fw-light">Total Students</h6>
-											</div>
-											<span class="mb-0 fw-bold">0</span>
-										</div>
-
-										<!-- Total courses -->
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="d-flex align-items-center">
-												<div class="icon-md bg-purple bg-opacity-10 text-purple rounded-circle flex-shrink-0"><i class="fas fa-book fa-fw"></i></div>
-												<h6 class="mb-0 ms-2 fw-light">Total Courses</h6>
-											</div>
-											<span class="mb-0 fw-bold">0</span>
-										</div><br>
-
-										<!-- Total courses -->
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="d-flex align-items-center">
-												<div class="icon-md bg-purple bg-opacity-10 text-purple rounded-circle flex-shrink-0"><i class="fas fa-book fa-fw"></i></div>
-												<h6 class="mb-0 ms-2 fw-light">Total Resources</h6>
-											</div>
-											<span class="mb-0 fw-bold">0</span>
-										</div>
-									</div>
-
-									<!-- Card footer -->
-									<div class="card-footer bg-transparent border-top">
-										<div class="d-flex justify-content-between align-items-center">
-											<!-- Rating star -->
-											<ul class="list-inline mb-0">
-												<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-												<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-												<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-												<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-												<li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
-											</ul>
-											<!-- Message button -->
-											<a href="#" class="btn btn-link text-body p-0 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Message" aria-label="Message">
-												<i class="bi bi-envelope-fill"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
+						
 							<!-- Card item END -->
 
 							
@@ -362,52 +285,8 @@
 								</thead>
 
 								<!-- Table body START -->
-								<tbody>
-									<!-- Table row -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<div class="d-flex align-items-center position-relative">
-												<!-- Image -->
-												<div class="avatar avatar-md">
-													<img src="/assets/images/avatar/09.jpg" class="rounded-circle" alt="">
-												</div>
-												<div class="mb-0 ms-2">
-													<!-- Title -->
-													<h6 class="mb-0"><a href="#" class="stretched-link">John Doe</a></h6>
-												</div>
-											</div>
-										</td>
-
-										<!-- Table data -->
-										<td class="text-center text-sm-start">
-											<h6 class="mb-0">Web Designer</h6>
-										</td>
-
-										<!-- Table data -->
-										<td>0</td>
-
-										<!-- Table data -->
-										<td>0</td>
-
-										<!-- Table data -->
-										<td>0</td>
-
-										<!-- Table data -->
-										<td>
-											<a href="#" class="btn btn-info-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message">
-												<i class="bi bi-envelope"></i>
-											</a>
-											<a href="/admin/instructors/details" class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" title="View">
-												<i class="bi bi-eye"></i>
-											</a>
-											<button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="modal" data-bs-target="#removeInstructor">
-												<i class="bi bi-trash"></i>
-											</button>
-										</td>
-									</tr>
-
-									
+								<tbody id="tableInstructorList">
+															
 								</tbody>
 								<!-- Table body END -->
 							</table>
@@ -425,18 +304,12 @@
 			<div class="card-footer bg-transparent p-0">
 				<!-- Pagination START -->
 				<div class="d-sm-flex justify-content-sm-between align-items-sm-center">
-					<!-- Content -->
-					<p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
-					<!-- Pagination -->
-					<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
-						<ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-							<li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
-							<li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
-							<li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
-							<li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
-							<li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
-						</ul>
-					</nav>
+					<!-- Pagination START -->
+					<div id="pageCountContainer"></div>				
+					<div class="d-sm-flex justify-content-sm-between align-items-sm-center" id="footer_container">
+					</div>
+	
+					<!-- Pagination END -->
 				</div>
 				<!-- Pagination END -->
 			</div>
@@ -453,41 +326,24 @@
 <!-- **************** MAIN CONTENT END **************** -->
 
 <!-- Remove Modal START -->
-<div class="modal fade" id="removeInstructor" tabindex="-1" aria-labelledby="removeInstructorlabel" aria-hidden="true">
+<!-- Block Modal START -->
+<div class="modal fade" id="blockScholar" tabindex="-1" aria-labelledby="blockScholarlabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			
 			<!-- Modal header -->
 			<div class="modal-header bg-dark">
-				<h5 class="modal-title text-white" id="removeInstructorlabel">Remove Instructor</h5>
+				<h5 class="modal-title text-white" id="blockScholarlabel">Block Instructor</h5>
 				<button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
 			</div>
 
 			<!-- Modal body -->
-			<div class="modal-body p-5">
-				<form action="">
-				<!-- Name -->
-				<span class="small">Instructor Name:</span>
-				<h6 class="mb-3">John Doe</h6>
-
-				<!-- Email -->
-				<span class="small">Scholar Email id:</span>
-				<h6 class="mb-3">example@gmail.com</h6>
-
-				<!-- Summary -->
-				<span class="small">NOTE:</span>
-				<p class="text-dark mb-2">Completing this process will remove this Instructor from the ASFIScholar platform</p>
-				<button type="button" class="btn btn-danger-soft my-0">Remove</button>
-			</form>
-			</div>
-
-			<!-- Modal footer -->
-			<div class="modal-footer">
-				<button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Close</button>
-			</div>
+			<div class="modal-body p-5" id="block_modal">
+				
 		</div>
 	</div>
 </div>   
+<!--Block Modal END -->
 <!--Remove Modal END -->
 
 <!-- Back to top -->
@@ -499,6 +355,11 @@
 
 <!-- Template Functions -->
 <script src="/assets/js/functions.js"></script>
+<script src="/js/paginationScript.js"></script>
+<script src="/js/formatDate.js"></script>
+<script src="/js/instructors/blockInstructor.js"></script>
+<script src="/js/instructors/updateinstructorList.js"></script>
+<script src="/js/instructors/getinstructorsList.js"></script>
 
 </body>
 
