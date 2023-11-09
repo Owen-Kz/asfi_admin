@@ -203,8 +203,8 @@
 		<!-- Title -->
 		<div class="row mb-3">
 			<div class="col-12 d-sm-flex justify-content-between align-items-center">
-				<h1 class="h3 mb-2 mb-sm-0">Total Courses <span class="badge bg-orange bg-opacity-10 text-orange">245</span></h1>
-				<a href="/admin/courses/create" class="btn btn-sm btn-primary mb-0">Create a Course</a>
+				<h1 class="h3 mb-2 mb-sm-0">Total Categories <span class="badge bg-orange bg-opacity-10 text-orange">0</span></h1>
+				<a href="" class="btn btn-sm btn-primary mb-0" data-bs-toggle="modal" data-bs-target="#createCategory">Create a Category</a>
 			</div>
 		</div>
 
@@ -226,19 +226,7 @@
 						</form>
 					</div>
 
-					<!-- Select option -->
-					<div class="col-md-3">
-						<!-- Short by filter -->
-						<form>
-							<select class="form-select js-choice border-0 z-index-9" aria-label=".form-select-sm">
-								<option value="">Sort by</option>
-								<option>Newest</option>
-								<option>Oldest</option>
-								<option>Accepted</option>
-								<option>Rejected</option>
-							</select>
-						</form>
-					</div>
+					
 				</div>
 				<!-- Search and select END -->
 			</div>
@@ -253,10 +241,7 @@
 						<!-- Table head -->
 						<thead>
 							<tr>
-								<th scope="col" class="border-0 rounded-start">Course Name</th>
-								<th scope="col" class="border-0">Instructor</th>
-								<th scope="col" class="border-0">Rating</th>
-								<th scope="col" class="border-0">Enrolled</th>
+								<th scope="col" class="border-0 rounded-start">Category Name</th>
 								<th scope="col" class="border-0 rounded-end">Action</th>
 							</tr>
 						</thead>
@@ -269,10 +254,6 @@
 								<!-- Table data -->
 								<td>
 									<div class="d-flex align-items-center position-relative">
-										<!-- Image -->
-										<div class="w-60px">
-											<img src="/assets/images/courses/4by3/08.jpg" class="rounded" alt="">
-										</div>
 										<!-- Title -->
 										<h6 class="table-responsive-title mb-0 ms-2">	
 											<a href="#" class="stretched-link">Building Scalable APIs with GraphQL</a>
@@ -282,36 +263,8 @@
 
 								<!-- Table data -->
 								<td>
-									<div class="d-flex align-items-center">
-										<!-- Avatar -->
-										<div class="avatar avatar-xs flex-shrink-0">
-											<img class="avatar-img rounded-circle" src="/assets/images/avatar/09.jpg" alt="avatar">
-										</div>
-										<!-- Info -->
-										<div class="ms-2">
-											<h6 class="mb-0 fw-light">Lori Stevens</h6>
-										</div>
-									</div>
-								</td>
-
-								<!-- Table data -->
-								<td>
-									<ul class="list-inline mb-0">
-										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-										<li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
-									</ul>
-								</td>
-
-								<!-- Table data -->
-								<td> 15,567</td>
-
-								<!-- Table data -->
-								<td>
-									<a href="/admin/courses/edit" class="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</a>
-									<button class="btn btn-sm btn-danger mb-0" data-bs-toggle="modal" data-bs-target="#deleteCourse">Delete</button>
+									<a href="" class="btn btn-sm btn-success me-1 mb-1 mb-md-0" data-bs-toggle="modal" data-bs-target="#editCategory">Edit</a>
+									<button class="btn btn-sm btn-danger mb-0" data-bs-toggle="modal" data-bs-target="#deleteCategory">Delete</button>
 								</td>
 							</tr>
 
@@ -355,14 +308,14 @@
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
 
-<!-- Delete Modal START -->
-<div class="modal fade" id="deleteCourse" tabindex="-1" aria-labelledby="deleteCourselabel" aria-hidden="true">
+<!-- Create Modal START -->
+<div class="modal fade" id="createCategory" tabindex="-1" aria-labelledby="createCategorylabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			
 			<!-- Modal header -->
 			<div class="modal-header bg-dark">
-				<h5 class="modal-title text-white" id="deleteCourselabel">Delete Course</h5>
+				<h5 class="modal-title text-white" id="createCategorylabel">Create Category</h5>
 				<button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
 			</div>
 
@@ -370,16 +323,81 @@
 			<div class="modal-body p-5">
 				<form action="">
 				<!-- Name -->
-				<span class="small">Title:</span>
-				<h6 class="mb-3">Title goes here...</h6>
+				<span class="small">Name:</span>
+				<input class="form-control" type="text" id="categoryName" placeholder="Category name goes here...">
 
-				<!-- Email -->
-				<span class="small">Description:</span>
-				<h6 class="mb-3">Description goes here...</h6>
 
 				<!-- Summary -->
 				<span class="small">NOTE:</span>
-				<p class="text-dark mb-2">Completing this process will delete this course from the ASFIScholar platform</p>
+				<p class="text-dark mb-2">Completing this process will create a new category</p>
+				<button type="button" class="btn btn-success my-0">Create</button>
+			</form>
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>   
+<!--Create Modal END -->
+
+<!-- Edit Modal START -->
+<div class="modal fade" id="editCategory" tabindex="-1" aria-labelledby="editCategorylabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			
+			<!-- Modal header -->
+			<div class="modal-header bg-dark">
+				<h5 class="modal-title text-white" id="editCategorylabel">Edit Category</h5>
+				<button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body p-5">
+				<form action="">
+				<!-- Name -->
+				<span class="small">Name:</span>
+				<input class="form-control" type="text" id="editCategoryName" value="...">
+
+				<!-- Summary -->
+				<span class="small">NOTE:</span>
+				<p class="text-dark mb-2">Completing this process will change the name of this category</p>
+				<button type="button" class="btn btn-info-soft my-0">Submit</button>
+			</form>
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>   
+<!--Edit Modal END -->
+
+<!-- Delete Modal START -->
+<div class="modal fade" id="deleteCategory" tabindex="-1" aria-labelledby="deleteCategorylabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			
+			<!-- Modal header -->
+			<div class="modal-header bg-dark">
+				<h5 class="modal-title text-white" id="deleteCategorylabel">Delete Category</h5>
+				<button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body p-5">
+				<form action="">
+				<!-- Name -->
+				<span class="small">Name:</span>
+				<input class="form-control" type="text" id="categoryName" value="...">
+
+				<!-- Summary -->
+				<span class="small">NOTE:</span>
+				<p class="text-dark mb-2">Completing this process will delete this Category from the ASFIScholar platform</p>
 				<button type="button" class="btn btn-danger-soft my-0">Delete</button>
 			</form>
 			</div>
