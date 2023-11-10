@@ -117,9 +117,9 @@ router.get("/allInstructorCourses/:username", AllInstructorCourses )
 
 
 
-// router.get("/admin/instructors/requests", (req,res)=>{
-//     res.render("admin-instructor-request")
-// })
+router.get("/admin/instructors/requests", (req,res)=>{
+    res.render("admin-instructor-request")
+})
 
 // END INSTRUCTOR CONTEXT 
 
@@ -169,6 +169,7 @@ router.get("/totalLinks/:username", TotalLinks)
 router.get("/admin/instructors/uploadRequests", (req,res)=>{
     res.render("InstructorUploadRequests")
 })
+
 router.get("/admin/instructors/account/requests", InstructorRequests)
 router.post("/instructors/applications/accept/:username", ApproveInstructorAccount)
 router.post("/instructors/applications/reject/:username", RejectInstructorAccount)
